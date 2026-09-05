@@ -2,7 +2,9 @@ import * as listingService from '../services/listingService.js';
 
 export const create = async (req, res) => {
   try {
-    const listing = await listingService.createListing(req.user.userId, req.body);
+    // req.user.userId comes from verifyToken middleware
+    // req.files comes from multer upload middleware
+    const listing = await listingService.createListingWithImages(req.user.userId, req.body, req.files);
     res.status(201).json(listing);
   } catch (error) {
     res.status(400).json({ error: error.message });
