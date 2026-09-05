@@ -30,10 +30,9 @@
 }
 
 .brand-logo-img {
-  height: 42px;
+  height: 60px;
   width: auto;
   object-fit: contain;
-  transform: rotate(-10deg);
 }
 
 /* Mode Switcher Pill */

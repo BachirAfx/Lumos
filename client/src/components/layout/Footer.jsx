@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import rovoLogo from '../../assets/images/rovo-logo.png';
+import broLendLogo from '../../assets/images/bro-lend-logo.png';
 import { Heart, ShieldCheck, Sparkles, MapPin, Award } from 'lucide-react';
 import './Footer.css';
 
@@ -13,7 +13,7 @@ export const Footer = () => {
 
           {/* Col 1: Brand & Bio */}
           <div className="footer-brand-col">
-            <img src={rovoLogo} alt="Rovo Logo" className="footer-logo-img" />
+            <img src={broLendLogo} alt="Bro Lend Logo" className="footer-logo-img" />
             <p className="footer-bio-text">
               The premier peer-to-peer campus gear sharing network. Empowering students, creators, and researchers to share tools, save money, and build community.
             </p>

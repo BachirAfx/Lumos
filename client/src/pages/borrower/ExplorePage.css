@@ -81,6 +81,7 @@
   font-family: 'Inter', sans-serif;
   outline: none;
   color: #172044;
+  transform: translateX(10%);
 }
 
 .explore-search-input::placeholder {

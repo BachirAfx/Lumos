@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import bannerGraphic from '../../assets/images/cant-find-banner-graphic.png';
+import bannerGraphic from '../../assets/images/cantFind.png';
 import './CantFindBanner.css';
 
 export const CantFindBanner = () => {

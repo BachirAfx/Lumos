@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import rovoLogo from '../../assets/images/rovo-logo.png';
+import broLendLogo from '../../assets/images/bro-lend-logo.png';
 import { Mail, Lock, Eye, EyeOff, AlertCircle, ShieldCheck, Sparkles, MapPin } from 'lucide-react';
 import './LoginPage.css';
 
@@ -153,7 +153,7 @@ export const LoginPage = () => {
         {/* Right Column: Campus Community & Brand Showcase */}
         <div className="login-showcase-panel">
           <div className="login-showcase-header">
-            <img src={rovoLogo} alt="Rovo Logo" className="login-showcase-logo" />
+            <img src={broLendLogo} alt="Bro Lend Logo" className="login-showcase-logo" />
             <span className="login-showcase-badge">Campus Gear Share</span>
           </div>
 

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import rovoLogo from '../../assets/images/rovo-logo.png';
+import broLendLogo from '../../assets/images/bro-lend-logo.png';
 import {
   Bell,
   PlusCircle,
@@ -57,7 +57,7 @@ export const Navbar = () => {
         {/* Left: Brand Logo + Mode Switcher */}
         <div className="navbar-left">
           <Link to={currentMode === 'lender' ? '/lender' : '/'} className="navbar-brand">
-            <img src={rovoLogo} alt="Rovo Logo" className="brand-logo-img" />
+            <img src={broLendLogo} alt="Bro Lend Logo" className="brand-logo-img" />
           </Link>
 
           {/* Mode Switcher Pill */}
