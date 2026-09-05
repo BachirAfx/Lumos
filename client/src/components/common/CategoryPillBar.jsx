@@ -24,6 +24,7 @@ export const CategoryPillBar = ({ activeCategory, onSelectCategory, navigateOnCl
               type="button"
               className={`category-pill-item ${isSelected ? 'active' : ''}`}
               onClick={() => handleClick(cat.id)}
+              style={{backgroundColor:cat.color}}
             >
               <div className="category-icon-frame">
                 <img src={cat.icon} alt={cat.name} className="category-svg-icon" />

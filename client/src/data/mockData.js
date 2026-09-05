@@ -1,19 +1,23 @@
-import academicsIcon from '../assets/images/category-academics.svg';
-import bicycleIcon from '../assets/images/category-bicycle.svg';
-import clothesIcon from '../assets/images/category-clothes.svg';
-import electronicsIcon from '../assets/images/category-electronics.svg';
-import toolsIcon from '../assets/images/category-tools.svg';
-import miscIcon from '../assets/images/category-miscellaneous.svg';
-import moreIcon from '../assets/images/category-more.svg';
+import academicsIcon from '../assets/images/academic.svg';
+import bicycleIcon from '../assets/images/bicycle.svg';
+import clothesIcon from '../assets/images/clothes.svg';
+import electronicsIcon from '../assets/images/gadgets.svg';
+import toolsIcon from '../assets/images/tools.svg';
+import miscIcon from '../assets/images/miscellaneous.svg';
+import sportsIcon from '../assets/images/sports.svg';
+import accIcon from '../assets/images/accessories.svg';
+import eventsIcon from '../assets/images/events.svg';
 
 export const CATEGORIES = [
-  { id: 'academics', name: 'Academics', icon: academicsIcon },
-  { id: 'bicycle', name: 'Bicycle', icon: bicycleIcon },
-  { id: 'clothes', name: 'Clothes', icon: clothesIcon },
-  { id: 'electronics', name: 'Electronics', icon: electronicsIcon },
-  { id: 'tools', name: 'Tools', icon: toolsIcon },
-  { id: 'miscellaneous', name: 'Miscellaneous', icon: miscIcon },
-  { id: 'more', name: 'More', icon: moreIcon },
+  { id: 'academics', name: 'Academics', icon: academicsIcon, color: '#fff4bb' },
+  { id: 'bicycle', name: 'Bicycle', icon: bicycleIcon, color: '#d8f0e3' },
+  { id: 'clothes', name: 'Clothes', icon: clothesIcon, color: '#ffdde5' },
+  { id: 'electronics', name: 'Electronics', icon: electronicsIcon, color: '#dcd2ff' },
+  { id: 'tools', name: 'Tools', icon: toolsIcon, color: '#ddebff' },
+  { id: 'sports', name: 'Sports', icon: sportsIcon, color: '#ffe5c2' },
+  { id: 'accessories', name: 'Accessories', icon: accIcon, color: '#e8ddf8' },
+  { id: 'events', name: 'Events', icon: eventsIcon, color: '#d9ecf5' },
+  { id: 'miscellaneous', name: 'Miscellaneous', icon: miscIcon, color: '#f7e8b0' }
 ];
 
 export const INITIAL_EQUIPMENT = [

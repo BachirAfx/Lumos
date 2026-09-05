@@ -4,11 +4,9 @@ import { getAllEquipment } from '../../services/api';
 import { CategoryPillBar, EquipmentCard, BorrowModal } from '../../components/common';
 import {
   Search,
-  Filter,
   SlidersHorizontal,
   ArrowUpDown,
   X,
-  CheckCircle,
   Package
 } from 'lucide-react';
 import './ExplorePage.css';
@@ -21,7 +19,7 @@ export const ExplorePage = () => {
   const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
   const [sortBy, setSortBy] = useState('rating');
   const [onlyAvailable, setOnlyAvailable] = useState(false);
-  const [maxPrice, setMaxPrice] = useState(50);
+  const [maxPrice, setMaxPrice] = useState(500);
   const [selectedEquipmentForBorrow, setSelectedEquipmentForBorrow] = useState(null);
 
   // Sync category & search from URL search params
@@ -45,7 +43,7 @@ export const ExplorePage = () => {
         const response = await getAllEquipment(filters);
         if (response.success) {
           let list = response.data;
-          if (maxPrice < 50) {
+          if (maxPrice < 500) {
             list = list.filter(item => item.pricePerDay <= maxPrice);
           }
           setEquipmentList(list);
@@ -87,14 +85,14 @@ export const ExplorePage = () => {
     setSearchQuery('');
     setSortBy('rating');
     setOnlyAvailable(false);
-    setMaxPrice(50);
+    setMaxPrice(500);
     setSearchParams({});
   };
 
   const activeFiltersCount = (selectedCategory !== 'all' ? 1 : 0) +
     (searchQuery ? 1 : 0) +
     (onlyAvailable ? 1 : 0) +
-    (maxPrice < 50 ? 1 : 0);
+    (maxPrice < 500 ? 1 : 0);
 
   return (
     <div className="explore-page-wrapper">
@@ -104,7 +102,7 @@ export const ExplorePage = () => {
         <div className="explore-header-row">
           <div>
             <span className="section-kicker">CAMPUS INVENTORY</span>
-            <h1 className="explore-title font-display">Explore Available Campus Gear</h1>
+            <h1 className="explore-title">Explore Available Campus Gear</h1>
             <p className="explore-sub">
               Browse equipment available for immediate dorm & lab pickup across campus.
             </p>
@@ -138,17 +136,19 @@ export const ExplorePage = () => {
         </div>
 
         {/* Category Pills Bar */}
-        <CategoryPillBar
-          activeCategory={selectedCategory}
-          onSelectCategory={handleCategoryChange}
-        />
+        <div className="explore-categories-box">
+          <CategoryPillBar
+            activeCategory={selectedCategory}
+            onSelectCategory={handleCategoryChange}
+          />
+        </div>
 
         {/* Filters & Sort Controls Bar */}
-        <div className="controls-bar card">
+        <div className="controls-bar">
           <div className="controls-left">
             <div className="filter-badge-item">
               <SlidersHorizontal size={16} />
-              <span className="font-semibold text-xs">Filter:</span>
+              <span className="filter-label-text">Filter:</span>
             </div>
 
             {/* Toggle Available Only */}
@@ -167,9 +167,9 @@ export const ExplorePage = () => {
               <span className="slider-label">Max: <strong>₹{maxPrice}/day</strong></span>
               <input
                 type="range"
-                min="5"
-                max="50"
-                step="5"
+                min="50"
+                max="500"
+                step="25"
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
                 className="price-range-slider"
@@ -202,53 +202,56 @@ export const ExplorePage = () => {
           </div>
         </div>
 
-        {/* Results Counter */}
-        <div className="results-count-row">
-          <span className="results-count-text">
-            Showing <strong>{equipmentList.length}</strong> equipment item{equipmentList.length !== 1 ? 's' : ''}
-          </span>
-        </div>
+        {/* OUTER PAPER CONTAINER: Cohesive Stationery Box around Equipment Grid */}
+        <div className="browse-inventory-box">
+          {/* Results Counter */}
+          <div className="results-count-row">
+            <span className="results-count-text">
+              Showing <strong>{equipmentList.length}</strong> equipment item{equipmentList.length !== 1 ? 's' : ''}
+            </span>
+          </div>
 
-        {/* Equipment Grid */}
-        {loading ? (
-          <div className="equipment-cards-grid">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <div key={n} className="skeleton-card card">
-                <div className="skeleton-thumb"></div>
-                <div className="skeleton-body">
-                  <div className="skeleton-line" style={{ width: '40%' }}></div>
-                  <div className="skeleton-line" style={{ width: '80%' }}></div>
+          {/* Equipment Grid */}
+          {loading ? (
+            <div className="equipment-cards-grid">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+                <div key={n} className="skeleton-card">
+                  <div className="skeleton-thumb"></div>
+                  <div className="skeleton-body">
+                    <div className="skeleton-line" style={{ width: '40%' }}></div>
+                    <div className="skeleton-line" style={{ width: '80%' }}></div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ) : equipmentList.length > 0 ? (
-          <div className="equipment-cards-grid">
-            {equipmentList.map((item) => (
-              <EquipmentCard
-                key={item.id}
-                equipment={item}
-                onBorrowClick={(eq) => setSelectedEquipmentForBorrow(eq)}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="no-equipment-found card card-brutal">
-            <Package size={48} className="text-muted" />
-            <h3 className="font-bold text-xl">No gear found matching your criteria</h3>
-            <p className="text-sm text-secondary">
-              Try adjusting your price range, clearing filters, or submit a request on the community need board!
-            </p>
-            <div className="empty-actions">
-              <button type="button" className="btn btn-outline" onClick={clearAllFilters}>
-                Clear All Filters
-              </button>
-              <Link to="/request-equipment" className="btn btn-yellow">
-                Post Equipment Request
-              </Link>
+              ))}
             </div>
-          </div>
-        )}
+          ) : equipmentList.length > 0 ? (
+            <div className="equipment-cards-grid">
+              {equipmentList.map((item) => (
+                <EquipmentCard
+                  key={item.id}
+                  equipment={item}
+                  onBorrowClick={(eq) => setSelectedEquipmentForBorrow(eq)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="no-equipment-found">
+              <Package size={48} className="empty-package-icon" />
+              <h3 className="empty-title">No gear found matching your criteria</h3>
+              <p className="empty-sub">
+                Try adjusting your price range, clearing filters, or submit a request on the community need board!
+              </p>
+              <div className="empty-actions">
+                <button type="button" className="btn btn-outline" onClick={clearAllFilters}>
+                  Clear All Filters
+                </button>
+                <Link to="/request-equipment" className="btn btn-primary">
+                  Post Equipment Request
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
 
       </div>
 
@@ -258,7 +261,6 @@ export const ExplorePage = () => {
         isOpen={!!selectedEquipmentForBorrow}
         onClose={() => setSelectedEquipmentForBorrow(null)}
         onSuccess={() => {
-          // Re-fetch
           getAllEquipment({ category: selectedCategory, search: searchQuery }).then(res => {
             if (res.success) setEquipmentList(res.data);
           });

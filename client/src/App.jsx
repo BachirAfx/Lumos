@@ -16,6 +16,7 @@ import { AddEquipmentPage } from './pages/lender/AddEquipmentPage';
 
 // Auth Pages
 import { LoginPage } from './pages/auth/LoginPage';
+import { SignUpPage } from './pages/auth/SignUpPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         {/* Auth routes (no navbar/footer wrapper) */}
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
 
         {/* Main layout routes with Navbar & Footer */}
         <Route element={<MainLayout />}>

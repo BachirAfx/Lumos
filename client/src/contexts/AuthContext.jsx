@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { getCurrentUser, updateUserMode, loginUser, logoutUser } from '../services/api';
+import { getCurrentUser, updateUserMode, loginUser, logoutUser, registerUser } from '../services/api';
 
 const AuthContext = createContext(null);
 
@@ -49,6 +49,20 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const signup = async (userInfo) => {
+    try {
+      const response = await registerUser(userInfo);
+      if (response.success) {
+        setUser(response.data);
+        setCurrentMode(response.data.currentMode || 'borrower');
+        return { success: true };
+      }
+      return { success: false, error: response.error };
+    } catch (error) {
+      return { success: false, error: 'Registration failed' };
+    }
+  };
+
   const logout = async () => {
     try {
       await logoutUser();
@@ -83,6 +97,7 @@ export const AuthProvider = ({ children }) => {
     isBorrower: currentMode === 'borrower',
     isLender: currentMode === 'lender',
     login,
+    signup,
     logout,
     switchMode,
     updateUser
