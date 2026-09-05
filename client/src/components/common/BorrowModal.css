@@ -1,0 +1,332 @@
+/* ==========================================================================
+   Borrow Modal - Stationery Paper Aesthetic
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(23, 32, 68, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-container {
+  background-color: #FFFDF8;
+  border: 1px solid #E8DED2;
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  padding: 28px;
+  box-shadow: 0 10px 40px rgba(23, 32, 68, 0.15);
+  animation: modalPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 90vh;
+  overflow-y: auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #172044;
+}
+
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #F0EAE1;
+  margin-bottom: 18px;
+}
+
+.modal-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #172044;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.close-modal-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #E8DED2;
+  background: #FFFDF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #726E65;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.close-modal-btn:hover {
+  background-color: #F4EFE6;
+  color: #172044;
+}
+
+/* Equipment Summary */
+.modal-equipment-summary {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  background-color: #F7F3EB;
+  border: 1px solid #ECE3D6;
+  border-radius: 14px;
+  margin-bottom: 18px;
+}
+
+.modal-equipment-thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid #E0D6C8;
+  flex-shrink: 0;
+}
+
+.modal-equipment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.modal-pickup-location {
+  color: #172044;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Form Fields */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.date-pickers-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2D2A26;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-icon {
+  position: absolute;
+  left: 12px;
+  color: #8C877D;
+  pointer-events: none;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  background-color: #FFFFFF;
+  border: 1px solid #DCD3C7;
+  border-radius: 12px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  color: #172044;
+  outline: none;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+
+.modal-input:focus {
+  border-color: #172044;
+  box-shadow: 0 0 0 3px rgba(23, 32, 68, 0.08);
+}
+
+.modal-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: #FFFFFF;
+  border: 1px solid #DCD3C7;
+  border-radius: 12px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  color: #172044;
+  resize: vertical;
+  outline: none;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+
+.modal-textarea:focus {
+  border-color: #172044;
+  box-shadow: 0 0 0 3px rgba(23, 32, 68, 0.08);
+}
+
+/* Price Breakdown */
+.price-breakdown-card {
+  background-color: #F7F3EB;
+  border: 1px solid #ECE3D6;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #726E65;
+}
+
+.deposit-note {
+  font-size: 11px;
+  color: #8C877D;
+  font-style: italic;
+}
+
+.breakdown-divider {
+  height: 1px;
+  background-color: #E0D6C8;
+  margin: 4px 0;
+}
+
+.total-row {
+  font-size: 14px;
+  font-weight: 700;
+  color: #172044;
+  padding-top: 2px;
+}
+
+.total-price {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #172044;
+}
+
+/* Guarantee Note */
+.guarantee-note-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background-color: #FAF6EF;
+  border-radius: 10px;
+  border: 1px dashed #D5C9B8;
+}
+
+/* Actions Footer */
+.modal-actions-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.modal-actions-footer .btn-outline {
+  background: transparent;
+  border: 1px solid #D5C9B8;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4A463F;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.modal-actions-footer .btn-outline:hover {
+  background-color: #EFE8DE;
+  color: #172044;
+}
+
+.modal-actions-footer .btn-yellow {
+  background-color: #172044;
+  color: #FFFDF8;
+  border: none;
+  padding: 11px 24px;
+  border-radius: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(23, 32, 68, 0.15);
+  transition: all 0.15s ease;
+}
+
+.modal-actions-footer .btn-yellow:hover {
+  background-color: #243063;
+  transform: translateY(-1px);
+}
+
+/* Error Alert */
+.modal-error-alert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background-color: #FDE8E8;
+  color: #9B1C1C;
+  border: 1px solid #F8B4B4;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Success View */
+.modal-success-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 16px;
+  gap: 12px;
+}
+
+.success-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #1B4D36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(27, 77, 54, 0.25);
+  animation: bounceSuccess 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes bounceSuccess {
+  0% { transform: scale(0.3); opacity: 0; }
+  70% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}

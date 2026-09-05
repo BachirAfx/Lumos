@@ -1,0 +1,539 @@
+/* ==========================================================================
+   List New Equipment Page - Exact Figma Page 2 Desktop - 2 Implementation
+   Stationery Paper Aesthetic (#F4EFE6 canvas, #FFFDF8 card sections)
+   ========================================================================== */
+
+.add-equipment-page {
+  min-height: calc(100vh - 72px);
+  background-color: #F4EFE6;
+  padding: 32px 0 64px 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #172044;
+}
+
+.add-equipment-container {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Back Button & Header
+   -------------------------------------------------------------------------- */
+.add-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #726E65;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: color 0.15s ease;
+}
+
+.add-back-btn:hover {
+  color: #172044;
+}
+
+.add-page-header {
+  margin-bottom: 28px;
+}
+
+.add-page-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #172044;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px 0;
+}
+
+.add-page-subtitle {
+  font-size: 15px;
+  color: #726E65;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Alerts & Feedback
+   -------------------------------------------------------------------------- */
+.add-alert-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background-color: #FDE8E8;
+  color: #9B1C1C;
+  border: 1px solid #F8B4B4;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.add-success-box {
+  background-color: #FFFDF8;
+  border: 1px solid #E8DED2;
+  border-radius: 20px;
+  padding: 60px 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.add-success-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #1B4D36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 14px rgba(27, 77, 54, 0.25);
+}
+
+.add-success-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #172044;
+  margin-bottom: 8px;
+}
+
+.add-success-desc {
+  font-size: 14px;
+  color: #726E65;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Card Sections
+   -------------------------------------------------------------------------- */
+.add-card-section {
+  background-color: #FFFDF8;
+  border: 1px solid #E8DED2;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.add-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F0EAE1;
+}
+
+.add-section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #172044;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.add-section-sub {
+  font-size: 13px;
+  color: #726E65;
+  margin: 4px 0 0 0;
+}
+
+.add-section-pill {
+  font-size: 11px;
+  font-weight: 600;
+  background-color: #F1ECE3;
+  color: #726E65;
+  padding: 4px 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Form Controls
+   -------------------------------------------------------------------------- */
+.add-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.add-form-group:last-child {
+  margin-bottom: 0;
+}
+
+.add-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin-bottom: 6px;
+}
+
+.req-star {
+  color: #E11D48;
+}
+
+.add-input,
+.add-select,
+.add-textarea {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #DCD3C7;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #172044;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.add-input:focus,
+.add-select:focus,
+.add-textarea:focus {
+  border-color: #172044;
+  box-shadow: 0 0 0 3px rgba(23, 32, 68, 0.08);
+}
+
+.add-textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.add-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.add-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+/* Affix Wrappers */
+.add-affix-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.add-currency-prefix {
+  position: absolute;
+  left: 14px;
+  font-weight: 600;
+  color: #726E65;
+  pointer-events: none;
+}
+
+.add-affix-suffix {
+  position: absolute;
+  right: 14px;
+  font-size: 12px;
+  color: #8C877D;
+  pointer-events: none;
+}
+
+.add-input.with-prefix {
+  padding-left: 32px;
+  padding-right: 50px;
+}
+
+.add-icon-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-inner-icon {
+  position: absolute;
+  left: 14px;
+  color: #8C877D;
+  pointer-events: none;
+}
+
+.add-input.with-icon {
+  padding-left: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   Upload Dropzone & Photos Grid
+   -------------------------------------------------------------------------- */
+.add-dropzone-box {
+  border: 2px dashed #D5C9B8;
+  border-radius: 16px;
+  background-color: #FAF6EF;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-dropzone-box:hover {
+  background-color: #F4ECE0;
+  border-color: #172044;
+}
+
+.dropzone-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropzone-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #EAE2D5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.dropzone-main-text {
+  font-size: 14px;
+  color: #2D2A26;
+  margin: 0 0 4px 0;
+}
+
+.dropzone-sub-text {
+  font-size: 12px;
+  color: #8C877D;
+  margin: 0;
+}
+
+.add-photos-grid {
+  display: flex;
+  gap: 14px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.photo-preview-item {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #E0D6C8;
+}
+
+.preview-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-photo-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background-color: #172044;
+  color: #FFFDF8;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.remove-photo-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.remove-photo-btn:hover {
+  background-color: #E11D48;
+}
+
+.add-more-photo-box {
+  width: 100px;
+  height: 100px;
+  border: 1.5px dashed #D5C9B8;
+  border-radius: 12px;
+  background-color: #FAF6EF;
+  color: #726E65;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.add-more-photo-box:hover {
+  border-color: #172044;
+  color: #172044;
+  background-color: #F4ECE0;
+}
+
+/* --------------------------------------------------------------------------
+   Chips & Multi-entry Rows
+   -------------------------------------------------------------------------- */
+.add-chip-entry-row {
+  display: flex;
+  gap: 8px;
+}
+
+.add-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #172044;
+  color: #FFFDF8;
+  border: none;
+  border-radius: 12px;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s;
+}
+
+.add-chip-btn:hover {
+  background-color: #243063;
+}
+
+.chips-list-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.stationery-chip {
+  background-color: #F1ECE3;
+  color: #2D2A26;
+  border: 1px solid #E0D6C8;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rule-chip {
+  background-color: #FBF7EE;
+  border-color: #E8DEC8;
+}
+
+.chip-del-btn {
+  background: transparent;
+  border: none;
+  color: #8C877D;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.chip-del-btn:hover {
+  color: #E11D48;
+}
+
+/* --------------------------------------------------------------------------
+   Form Footer Actions
+   -------------------------------------------------------------------------- */
+.add-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.add-draft-btn {
+  background: transparent;
+  border: 1px solid #D5C9B8;
+  padding: 13px 26px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4A463F;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.add-draft-btn:hover {
+  background-color: #EFE8DE;
+  color: #172044;
+}
+
+.add-submit-btn {
+  background-color: #172044;
+  color: #FFFDF8;
+  border: none;
+  padding: 14px 38px;
+  border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(23, 32, 68, 0.2);
+  transition: all 0.2s ease;
+}
+
+.add-submit-btn:hover {
+  background-color: #243063;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(23, 32, 68, 0.28);
+}
+
+.add-submit-btn:disabled,
+.add-draft-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .add-grid-2,
+  .add-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .add-card-section {
+    padding: 20px;
+  }
+
+  .add-form-footer {
+    flex-direction: column-reverse;
+  }
+
+  .add-draft-btn,
+  .add-submit-btn {
+    width: 100%;
+  }
+}

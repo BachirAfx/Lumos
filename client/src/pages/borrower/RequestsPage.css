@@ -1,0 +1,158 @@
+.requests-page-wrapper {
+  padding: 32px 0 60px;
+}
+
+/* Hero Card */
+.requests-hero-card {
+  padding: 36px 40px;
+  background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+  margin-bottom: 28px;
+}
+
+.requests-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 680px;
+}
+
+.requests-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+.requests-hero-title {
+  font-size: 32px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+.requests-hero-sub {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.requests-hero-actions {
+  margin-top: 8px;
+}
+
+/* Controls Bar */
+.requests-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background-color: #FFFFFF;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-box-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 320px;
+}
+
+.search-box-wrap .search-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--color-text-muted);
+}
+
+.requests-search-input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  border: 1.5px solid var(--color-border-medium);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  outline: none;
+}
+
+.requests-search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-subtle);
+}
+
+/* Urgency Pills */
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.urgency-filter-label {
+  color: var(--color-text-secondary);
+}
+
+.urgency-pills-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.urgency-pill {
+  padding: 6px 14px;
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.urgency-pill:hover {
+  border-color: #111827;
+  color: var(--color-text-primary);
+}
+
+.urgency-pill.active {
+  background-color: #111827;
+  border-color: #111827;
+  color: #FFFFFF;
+}
+
+.urgency-pill.active.high {
+  background-color: #F43F5E;
+  border-color: #F43F5E;
+  color: #FFFFFF;
+}
+
+/* Requests Grid */
+.requests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+/* Skeletons */
+.skeleton-request-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.empty-requests-card {
+  padding: 56px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background-color: #FFFFFF;
+}

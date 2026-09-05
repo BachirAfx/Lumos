@@ -1,0 +1,465 @@
+/* ==========================================================================
+   Borrower Request Equipment Page - Stationery Paper Aesthetic
+   Matches Figma Stationery Theme (#F4EFE6 canvas, #FFFDF8 card sections)
+   ========================================================================== */
+
+.request-equipment-page {
+  min-height: calc(100vh - 72px);
+  background-color: #F4EFE6;
+  padding: 32px 0 64px 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #172044;
+}
+
+.request-equipment-container {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Back Button & Header
+   -------------------------------------------------------------------------- */
+.req-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #726E65;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: color 0.15s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.req-back-btn:hover {
+  color: #172044;
+}
+
+.req-page-header {
+  margin-bottom: 28px;
+}
+
+.req-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #172044;
+  color: #FFFDF8;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.req-page-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #172044;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px 0;
+}
+
+.req-page-subtitle {
+  font-size: 15px;
+  color: #726E65;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Alerts & Feedback
+   -------------------------------------------------------------------------- */
+.req-alert-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background-color: #FDE8E8;
+  color: #9B1C1C;
+  border: 1px solid #F8B4B4;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.req-success-box {
+  background-color: #FFFDF8;
+  border: 1px solid #E8DED2;
+  border-radius: 20px;
+  padding: 60px 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.req-success-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #1B4D36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 14px rgba(27, 77, 54, 0.25);
+}
+
+.req-success-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #172044;
+  margin-bottom: 8px;
+}
+
+.req-success-desc {
+  font-size: 14px;
+  color: #726E65;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Card Sections
+   -------------------------------------------------------------------------- */
+.req-card-section {
+  background-color: #FFFDF8;
+  border: 1px solid #E8DED2;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.req-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F0EAE1;
+}
+
+.req-section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #172044;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.req-section-sub {
+  font-size: 13px;
+  color: #726E65;
+  margin: 4px 0 0 0;
+}
+
+.req-section-pill {
+  font-size: 11px;
+  font-weight: 600;
+  background-color: #F1ECE3;
+  color: #726E65;
+  padding: 4px 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Form Controls
+   -------------------------------------------------------------------------- */
+.req-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.req-form-group:last-child {
+  margin-bottom: 0;
+}
+
+.req-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2D2A26;
+  margin-bottom: 6px;
+}
+
+.req-star {
+  color: #E11D48;
+}
+
+.req-input-hint {
+  font-size: 11px;
+  color: #8C877D;
+  margin-top: 4px;
+}
+
+.req-input,
+.req-select,
+.req-textarea {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #DCD3C7;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #172044;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.req-input:focus,
+.req-select:focus,
+.req-textarea:focus {
+  border-color: #172044;
+  box-shadow: 0 0 0 3px rgba(23, 32, 68, 0.08);
+}
+
+.req-textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.req-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Affix & Icon Wrappers */
+.req-affix-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.req-currency-prefix {
+  position: absolute;
+  left: 14px;
+  font-weight: 600;
+  color: #726E65;
+  pointer-events: none;
+}
+
+.req-affix-suffix {
+  position: absolute;
+  right: 14px;
+  font-size: 12px;
+  color: #8C877D;
+  pointer-events: none;
+}
+
+.req-input.with-prefix {
+  padding-left: 32px;
+  padding-right: 50px;
+}
+
+.req-icon-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.req-input-inner-icon {
+  position: absolute;
+  left: 14px;
+  color: #8C877D;
+  pointer-events: none;
+}
+
+.req-input.with-icon {
+  padding-left: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   Chips & Requirement Tags
+   -------------------------------------------------------------------------- */
+.req-chip-entry-row {
+  display: flex;
+  gap: 8px;
+}
+
+.req-chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #172044;
+  color: #FFFDF8;
+  border: none;
+  border-radius: 12px;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s;
+}
+
+.req-chip-btn:hover {
+  background-color: #243063;
+}
+
+.req-chips-list-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.req-stationery-chip {
+  background-color: #F1ECE3;
+  color: #2D2A26;
+  border: 1px solid #E0D6C8;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.req-chip-del-btn {
+  background: transparent;
+  border: none;
+  color: #8C877D;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.req-chip-del-btn:hover {
+  color: #E11D48;
+}
+
+/* --------------------------------------------------------------------------
+   Trust Callout Box
+   -------------------------------------------------------------------------- */
+.req-trust-callout-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background-color: #F7F3EB;
+  border: 1px solid #E8DED2;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-top: 20px;
+}
+
+.req-trust-icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #E8DED2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.req-trust-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #172044;
+  margin: 0 0 4px 0;
+}
+
+.req-trust-desc {
+  font-size: 12px;
+  color: #726E65;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Form Footer Actions
+   -------------------------------------------------------------------------- */
+.req-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.req-draft-btn {
+  background: transparent;
+  border: 1px solid #D5C9B8;
+  padding: 13px 26px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4A463F;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.req-draft-btn:hover {
+  background-color: #EFE8DE;
+  color: #172044;
+}
+
+.req-submit-btn {
+  background-color: #172044;
+  color: #FFFDF8;
+  border: none;
+  padding: 14px 38px;
+  border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(23, 32, 68, 0.2);
+  transition: all 0.2s ease;
+}
+
+.req-submit-btn:hover {
+  background-color: #243063;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(23, 32, 68, 0.28);
+}
+
+.req-submit-btn:disabled,
+.req-draft-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .req-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .req-card-section {
+    padding: 20px;
+  }
+
+  .req-form-footer {
+    flex-direction: column-reverse;
+  }
+
+  .req-draft-btn,
+  .req-submit-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,409 @@
+/* ==========================================================================
+   Login Page - Stationery Paper Aesthetic (#FAF8F5 canvas, #FFF9EA parchment card)
+   Dual-column layout with Left Login Card and Right Campus Showcase Panel
+   ========================================================================== */
+
+.login-page-canvas {
+  min-height: 100vh;
+  background-color: #FAF8F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #172044;
+  box-sizing: border-box;
+}
+
+/* Main Dual-Column Wrapper */
+.login-main-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 52px;
+  max-width: 980px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Left Column: Stationery Login Card (Figma Exact)
+   ========================================================================== */
+.login-card-container {
+  background-color: #FFF9EA;
+  border: 1px solid rgba(232, 222, 210, 0.7);
+  border-radius: 28px;
+  width: 100%;
+  max-width: 410px;
+  padding: 44px 38px 40px 38px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  animation: loginCardPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes loginCardPop {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Welcome Title */
+.login-welcome-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 26px 0;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+/* Feedback Badges */
+.login-error-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #FDE8E8;
+  color: #9B1C1C;
+  border: 1px solid #F8B4B4;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.login-info-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #EDE9FE;
+  color: #5B21B6;
+  border: 1px solid #DDD6FE;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* Form Stack */
+.login-form-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Field Group */
+.login-field-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.login-field-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 7px;
+  letter-spacing: -0.01em;
+}
+
+/* Input Wrapper & Icon */
+.login-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid #D5CBDD;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.15s ease;
+  height: 42px;
+}
+
+.login-input-wrap:focus-within {
+  border-color: #172044;
+  box-shadow: 0 0 0 3px rgba(23, 32, 68, 0.08);
+}
+
+.login-input-icon {
+  position: absolute;
+  left: 12px;
+  color: #726E65;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.login-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 0 12px 0 38px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: #172044;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.login-input::placeholder {
+  color: #8C877D;
+  font-size: 13px;
+}
+
+/* Password Eye Button */
+.login-eye-btn {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #172044;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: opacity 0.15s ease;
+}
+
+.login-eye-btn:hover {
+  opacity: 0.7;
+}
+
+/* Forgot Password Row */
+.login-forgot-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -6px;
+  margin-bottom: 24px;
+}
+
+.login-forgot-btn {
+  background: transparent;
+  border: none;
+  color: #6366F1;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease, text-decoration 0.15s ease;
+}
+
+.login-forgot-btn:hover {
+  color: #4F46E5;
+  text-decoration: underline;
+}
+
+/* Action CTA Button */
+.login-btn-row {
+  display: flex;
+  justify-content: center;
+}
+
+.login-submit-navy-btn {
+  background-color: #19223C;
+  color: #FFFFFF;
+  border: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  padding: 12px 58px;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(25, 34, 60, 0.38);
+  transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+}
+
+.login-submit-navy-btn:hover {
+  background-color: #243063;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(25, 34, 60, 0.48);
+}
+
+.login-submit-navy-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================================
+   Right Column: Campus Community & Brand Showcase
+   ========================================================================== */
+.login-showcase-panel {
+  flex: 1;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: loginShowcaseFade 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes loginShowcaseFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-showcase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.login-showcase-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.login-showcase-badge {
+  font-size: 11px;
+  font-weight: 700;
+  background-color: #EDE9FE;
+  color: #5B21B6;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid #DDD6FE;
+}
+
+.login-showcase-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #172044;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.login-showcase-desc {
+  font-size: 14px;
+  color: #5E5A53;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Feature List Cards */
+.login-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.login-feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background-color: #FFFDF8;
+  border: 1px solid #E8DED2;
+  border-radius: 16px;
+  padding: 13px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login-feature-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(23, 32, 68, 0.05);
+}
+
+.login-feature-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-purple {
+  background-color: #F3E8FF;
+  color: #7E22CE;
+}
+
+.icon-amber {
+  background-color: #FEF3C7;
+  color: #B45309;
+}
+
+.icon-emerald {
+  background-color: #D1FAE5;
+  color: #047857;
+}
+
+.login-feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.login-feature-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #172044;
+  margin: 0;
+}
+
+.login-feature-text {
+  font-size: 12px;
+  color: #726E65;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   Responsive adjustments
+   ========================================================================== */
+@media (max-width: 860px) {
+  .login-main-wrapper {
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .login-card-container {
+    max-width: 100%;
+  }
+
+  .login-showcase-panel {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page-canvas {
+    padding: 24px 16px;
+  }
+
+  .login-card-container {
+    padding: 32px 22px 28px 22px;
+    border-radius: 22px;
+  }
+
+  .login-welcome-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .login-showcase-title {
+    font-size: 22px;
+  }
+}

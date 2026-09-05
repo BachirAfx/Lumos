@@ -1,0 +1,377 @@
+/* ==========================================================================
+   BORROWER HOME PAGE (Figma node 1:2)
+   ========================================================================== */
+
+.home-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* =========================================================================
+   TORN PAPER EDGE EFFECT
+   ========================================================================= */
+.torn-section {
+  position: relative;
+  background-color: var(--color-card-beige);
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.torn-section::before,
+.torn-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: var(--color-bg);
+  z-index: 1;
+}
+
+.torn-section::before {
+  top: -1px;
+  clip-path: polygon(
+    0% 0%, 100% 0%,
+    100% 40%, 97% 70%, 94% 50%, 91% 80%, 88% 45%, 85% 75%,
+    82% 40%, 79% 70%, 76% 50%, 73% 80%, 70% 45%, 67% 75%,
+    64% 40%, 61% 65%, 58% 50%, 55% 85%, 52% 45%, 49% 70%,
+    46% 50%, 43% 80%, 40% 40%, 37% 75%, 34% 50%, 31% 70%,
+    28% 40%, 25% 80%, 22% 50%, 19% 65%, 16% 45%, 13% 75%,
+    10% 40%, 7% 70%, 4% 50%, 1% 65%, 0% 40%
+  );
+}
+
+.torn-section::after {
+  bottom: -1px;
+  clip-path: polygon(
+    0% 100%, 100% 100%,
+    100% 60%, 97% 30%, 94% 50%, 91% 20%, 88% 55%, 85% 25%,
+    82% 60%, 79% 30%, 76% 50%, 73% 20%, 70% 55%, 67% 25%,
+    64% 60%, 61% 35%, 58% 50%, 55% 15%, 52% 55%, 49% 30%,
+    46% 50%, 43% 20%, 40% 60%, 37% 25%, 34% 50%, 31% 30%,
+    28% 60%, 25% 20%, 22% 50%, 19% 35%, 16% 55%, 13% 25%,
+    10% 60%, 7% 30%, 4% 50%, 1% 35%, 0% 60%
+  );
+}
+
+/* =========================================================================
+   SEARCH BAR SECTION
+   ========================================================================= */
+.search-section {
+  padding: 28px 0 20px;
+}
+
+.main-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 640px;
+  height: 48px;
+  margin: 0 auto;
+  background-color: var(--color-card-white);
+  border: 1px solid var(--color-border-sand);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-card);
+  padding: 0 20px;
+  gap: 12px;
+}
+
+.main-search-icon {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.main-search-input {
+  flex: 1;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.main-search-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* =========================================================================
+   CATEGORIES SECTION
+   ========================================================================= */
+.categories-section {
+  padding: 16px 0 32px;
+}
+
+.section-heading {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.section-heading--left {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+/* =========================================================================
+   SECTION HEADER ROW (title + location badge + sort)
+   ========================================================================= */
+.section-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.section-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background-color: var(--color-card-white);
+  border: 1px solid var(--color-border-sand);
+  border-radius: var(--radius-full);
+  padding: 4px 10px;
+}
+
+.location-badge svg {
+  color: var(--color-text-muted);
+}
+
+.section-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sort-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.sort-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sort-select {
+  appearance: none;
+  background-color: var(--color-card-white);
+  border: 1px solid var(--color-border-sand);
+  border-radius: var(--radius-md);
+  padding: 6px 28px 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  outline: none;
+}
+
+.sort-select:focus {
+  border-color: var(--color-purple);
+}
+
+.sort-chevron {
+  position: absolute;
+  right: 8px;
+  pointer-events: none;
+  color: var(--color-text-muted);
+}
+
+/* =========================================================================
+   EQUIPMENT GRID SECTIONS
+   ========================================================================= */
+.featured-gear-section,
+.mostly-rented-section {
+  padding: 40px 0;
+}
+
+.equipment-grid-container {
+  margin-top: 0;
+}
+
+.equipment-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.empty-results-box {
+  padding: 48px 24px;
+  text-align: center;
+  background-color: var(--color-card-offwhite);
+  border: 1px solid var(--color-border-sand);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
+
+/* Skeletons */
+.loading-state-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.skeleton-card {
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--color-card-white);
+  border: 1px solid var(--color-border-sand);
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-thumb {
+  width: 100%;
+  height: 120px;
+  background-color: var(--color-card-beige);
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeleton-line {
+  height: 10px;
+  background-color: var(--color-card-beige);
+  border-radius: var(--radius-xs);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* =========================================================================
+   BANNER SECTION
+   ========================================================================= */
+.banner-section {
+  padding: 16px 0;
+}
+
+/* =========================================================================
+   FAQ SECTION
+   ========================================================================= */
+.faq-section {
+  padding: 48px 0 60px;
+}
+
+.faq-subtitle {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  max-width: 540px;
+  margin: -8px auto 24px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-question {
+  background-color: var(--color-faq-question);
+  border: 1px solid var(--color-border-sand);
+  border-radius: var(--radius-sm);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+}
+
+.faq-q-text {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+}
+
+.faq-answer {
+  background-color: var(--color-faq-answer);
+  border: 1px solid var(--color-border-sand);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: var(--shadow-card);
+}
+
+.faq-a-text {
+  font-size: 13px;
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width: 1400px) {
+  .equipment-cards-grid,
+  .loading-state-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1100px) {
+  .equipment-cards-grid,
+  .loading-state-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 840px) {
+  .equipment-cards-grid,
+  .loading-state-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main-search-box {
+    max-width: 100%;
+  }
+
+  .section-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 540px) {
+  .equipment-cards-grid,
+  .loading-state-grid {
+    grid-template-columns: 1fr;
+  }
+}
