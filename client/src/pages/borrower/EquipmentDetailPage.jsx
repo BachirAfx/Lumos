@@ -209,7 +209,243 @@ export const EquipmentDetailPage = () => {
   };
 
   const handlePrintRecords = () => {
-    window.print();
+    const printWindow = document.createElement('iframe');
+    printWindow.style.position = 'absolute';
+    printWindow.style.top = '-9999px';
+    printWindow.style.left = '-9999px';
+    printWindow.style.width = '0px';
+    printWindow.style.height = '0px';
+    printWindow.style.border = 'none';
+    document.body.appendChild(printWindow);
+
+    const doc = printWindow.contentWindow.document;
+    const printDate = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    const rowsHtml = recordsData.map((rec, index) => `
+      <tr>
+        <td style="padding: 12px 16px; font-size: 13px; color: #334155; border-bottom: 1px solid #F1F5F9;">
+          <span style="display: inline-block; background-color: #D1FAE5; color: #065F46; border-radius: 6px; padding: 2px 8px; font-size: 11px; font-weight: 600;">
+            ${rec.dateBadge}
+          </span>
+        </td>
+        <td style="padding: 12px 16px; font-size: 13px; color: #334155; border-bottom: 1px solid #F1F5F9; font-weight: 500;">
+          ${rec.usedFrom}
+        </td>
+        <td style="padding: 12px 16px; font-size: 13px; color: #334155; border-bottom: 1px solid #F1F5F9;">
+          ${rec.usedFor}
+        </td>
+      </tr>
+    `).join('');
+
+    doc.open();
+    doc.write(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Usage Records - ${equipment.title || 'Equipment'}</title>
+        <meta charset="utf-8" />
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+          * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+          }
+          body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #172044;
+            background: #ffffff;
+            padding: 36px 44px;
+            line-height: 1.5;
+          }
+          .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+          }
+          .brand-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #172044;
+            letter-spacing: -0.3px;
+          }
+          .brand-subtitle {
+            font-size: 13px;
+            color: #64748B;
+            margin-top: 3px;
+          }
+          .meta-info {
+            text-align: right;
+          }
+          .badge {
+            display: inline-block;
+            background-color: #EEF2FF;
+            color: #4F46E5;
+            font-weight: 600;
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            margin-bottom: 6px;
+          }
+          .meta-date {
+            font-size: 12px;
+            color: #64748B;
+          }
+          .summary-card {
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 28px;
+          }
+          .summary-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 12px;
+          }
+          .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+          }
+          .summary-col {
+            display: flex;
+            flex-direction: column;
+          }
+          .summary-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748B;
+            font-weight: 600;
+            margin-bottom: 2px;
+          }
+          .summary-val {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1E293B;
+          }
+          .section-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #172044;
+            margin-bottom: 12px;
+          }
+          table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 32px;
+          }
+          th {
+            background-color: #F1F5F9;
+            color: #475569;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid #E2E8F0;
+          }
+          tr:last-child td {
+            border-bottom: none;
+          }
+          .footer {
+            border-top: 1px solid #E2E8F0;
+            padding-top: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: #94A3B8;
+          }
+          @media print {
+            body {
+              padding: 10mm 15mm;
+            }
+            @page {
+              margin: 10mm;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="header">
+          <div>
+            <h1 class="brand-title">Rovo Campus Gear Share</h1>
+            <p class="brand-subtitle">Official Equipment Rental & Usage History</p>
+          </div>
+          <div class="meta-info">
+            <span class="badge">Verified Records Log</span>
+            <p class="meta-date">Generated on ${printDate}</p>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <h2 class="summary-title">${equipment.title || 'Equipment Details'}</h2>
+          <div class="summary-grid">
+            <div class="summary-col">
+              <span class="summary-label">Owner</span>
+              <span class="summary-val">${equipment.ownerName || 'Verified Student'}</span>
+            </div>
+            <div class="summary-col">
+              <span class="summary-label">Location</span>
+              <span class="summary-val">${equipment.location || 'Campus'}</span>
+            </div>
+            <div class="summary-col">
+              <span class="summary-label">Condition</span>
+              <span class="summary-val">${equipment.condition || 'Excellent'}</span>
+            </div>
+            <div class="summary-col">
+              <span class="summary-label">Daily Rate</span>
+              <span class="summary-val">₹${equipment.pricePerDay || 150}/day</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-heading">Past Borrowing & Usage History</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Recorded Date</th>
+              <th>Rental Period</th>
+              <th>Primary Purpose / Project</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rowsHtml}
+          </tbody>
+        </table>
+
+        <div class="footer">
+          <span>Rovo Student Equipment Sharing Network</span>
+          <span>Confidential Campus Record • Page 1 of 1</span>
+        </div>
+      </body>
+      </html>
+    `);
+    doc.close();
+
+    setTimeout(() => {
+      printWindow.contentWindow.focus();
+      printWindow.contentWindow.print();
+      setTimeout(() => {
+        document.body.removeChild(printWindow);
+      }, 1000);
+    }, 250);
   };
 
   return (

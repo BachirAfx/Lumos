@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import logger from './utils/logger.js';
 import authRoutes from './routes/authRoutes.js';
 import listingRoutes from './routes/listingRoutes.js';
@@ -8,6 +9,9 @@ import rentalRoutes from './routes/rentalRoutes.js';
 dotenv.config();
 
 const app = express();
+
+// Enable CORS
+app.use(cors());
 
 app.use(express.json());
 
