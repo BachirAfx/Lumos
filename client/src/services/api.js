@@ -278,55 +278,146 @@ export const updateRentalStatus = async (rentalId, status) => {
 // USER / AUTH API
 // ============================================================================
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+
 export const getCurrentUser = async () => {
-  await delay(100);
-  return { success: true, data: userData };
+  const token = localStorage.getItem('authToken');
+
+  if (!token) {
+    return { success: false, error: 'No token found' };
+  }
+
+  // For now, decode the token payload to get user info
+  // In a production app, you'd validate with the backend
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+
+    // Check if token is expired
+    if (payload.exp && payload.exp * 1000 < Date.now()) {
+      localStorage.removeItem('authToken');
+      return { success: false, error: 'Token expired' };
+    }
+
+    // Return user data from localStorage if available
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      return { success: true, data: JSON.parse(storedUser) };
+    }
+
+    return { success: false, error: 'No user data found' };
+  } catch (error) {
+    localStorage.removeItem('authToken');
+    return { success: false, error: 'Invalid token' };
+  }
 };
 
 export const updateUserMode = async (mode) => {
   await delay(100);
+  const storedUser = localStorage.getItem('user');
+  if (storedUser) {
+    const user = JSON.parse(storedUser);
+    user.currentMode = mode;
+    localStorage.setItem('user', JSON.stringify(user));
+    return { success: true, data: user };
+  }
   userData.currentMode = mode;
   return { success: true, data: userData };
 };
 
 export const updateUserProfile = async (updates) => {
   await delay();
+  const storedUser = localStorage.getItem('user');
+  if (storedUser) {
+    const user = JSON.parse(storedUser);
+    const updatedUser = { ...user, ...updates };
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+    return { success: true, data: updatedUser };
+  }
   userData = { ...userData, ...updates };
   return { success: true, data: userData };
 };
 
 export const loginUser = async (email, password) => {
-  await delay(500);
+  try {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-  // Mock authentication - always succeeds for demo
-  if (email && password) {
-    return { success: true, data: userData };
+    const data = await response.json();
+
+    if (!response.ok) {
+      return { success: false, error: data.error || 'Login failed' };
+    }
+
+    // Store token and user data
+    localStorage.setItem('authToken', data.token);
+
+    // Merge backend user data with frontend user structure
+    const userWithDefaults = {
+      id: data.user.user_id,
+      name: data.user.full_name,
+      email: data.user.email,
+      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(data.user.full_name)}&background=6366f1&color=fff`,
+      department: 'Student',
+      currentMode: 'borrower',
+      borrowHistory: [],
+      myListings: [],
+      borrowedItemsCount: 0,
+      listedItemsCount: 0,
+      rating: 5.0,
+      reviewsCount: 0,
+      joinedDate: new Date(data.user.created_at).toLocaleDateString()
+    };
+
+    localStorage.setItem('user', JSON.stringify(userWithDefaults));
+
+    return { success: true, data: userWithDefaults };
+  } catch (error) {
+    console.error('Login error:', error);
+    return { success: false, error: 'Network error. Please try again.' };
   }
-
-  return { success: false, error: 'Invalid credentials' };
 };
 
 export const registerUser = async (userInfo) => {
-  await delay(500);
+  try {
+    // Map 'name' field to 'fullName' for backend
+    const requestBody = {
+      fullName: userInfo.name,
+      email: userInfo.email,
+      password: userInfo.password
+    };
 
-  // Mock registration
-  const newUser = {
-    ...INITIAL_USER,
-    ...userInfo,
-    id: `u-${Date.now()}`,
-    joinedDate: new Date().toLocaleDateString(),
-    borrowHistory: [],
-    myListings: []
-  };
+    const response = await fetch(`${API_BASE_URL}/auth/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    });
 
-  userData = newUser;
+    const data = await response.json();
 
-  return { success: true, data: newUser };
+    if (!response.ok) {
+      return { success: false, error: data.error || 'Registration failed' };
+    }
+
+    // After successful registration, log the user in
+    return await loginUser(userInfo.email, userInfo.password);
+  } catch (error) {
+    console.error('Registration error:', error);
+    return { success: false, error: 'Network error. Please try again.' };
+  }
 };
 
 export const logoutUser = async () => {
   await delay(100);
-  // In a real app, clear tokens/session
+  // Clear tokens and user data from localStorage
+  localStorage.removeItem('authToken');
+  localStorage.removeItem('user');
   return { success: true };
 };
 
