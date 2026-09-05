@@ -278,7 +278,7 @@ export const EquipmentDetailPage = () => {
             <div className="sidebar-card card-primary-info">
               <div className="primary-info-top-row">
                 <div className="price-display-text">
-                  <span className="price-num">{pricePerDay}</span>
+                  <span className="price-num">₹{pricePerDay}</span>
                   <span className="price-slash">/day</span>
                 </div>
 
@@ -364,7 +364,7 @@ export const EquipmentDetailPage = () => {
                           <div className="popover-field-group">
                             <label className="popover-field-label">Approx Charge</label>
                             <div className="charge-badge">
-                              <span>{approxCharge}</span>
+                              <span>₹{approxCharge}</span>
                             </div>
                           </div>
 

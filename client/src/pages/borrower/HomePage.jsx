@@ -66,66 +66,70 @@ export const HomePage = () => {
           ========================================================================= */}
       <section className="categories-section">
         <div className="container">
-          <h2 className="section-heading section-heading--left">Browse by Category</h2>
-          <CategoryPillBar navigateOnClick />
+          <div className="categories-container-box">
+            <h2 className="section-heading section-heading--left">Browse by Category</h2>
+            <CategoryPillBar navigateOnClick />
+          </div>
         </div>
       </section>
 
       {/* =========================================================================
           NEWLY LISTED NEAR YOU
           ========================================================================= */}
-      <section className="featured-gear-section torn-section">
+      <section className="featured-gear-section">
         <div className="container">
-          <div className="section-header-row">
-            <div className="section-header-left">
-              <h2 className="section-heading section-heading--left">Newly listed near you</h2>
-              <span className="location-badge">
-                <MapPin size={12} />
-                Within 5 Km
-              </span>
-            </div>
-            <div className="section-header-right">
-              <span className="sort-label">Sort by</span>
-              <div className="sort-select-wrapper">
-                <select className="sort-select" defaultValue="newest">
-                  <option value="newest">Newest</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                  <option value="rating">Top Rated</option>
-                </select>
-                <ChevronDown size={14} className="sort-chevron" />
+          <div className="borrower-card-box">
+            <div className="section-header-row">
+              <div className="section-header-left">
+                <h2 className="section-box-title">Newly listed near you</h2>
+                <span className="location-badge">
+                  <MapPin size={12} />
+                  Within 5 Km
+                </span>
+              </div>
+              <div className="section-header-right">
+                <span className="sort-label">Sort by</span>
+                <div className="sort-select-wrapper">
+                  <select className="sort-select" defaultValue="newest">
+                    <option value="newest">Newest</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Top Rated</option>
+                  </select>
+                  <ChevronDown size={14} className="sort-chevron" />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="equipment-grid-container">
-            {loading ? (
-              <div className="loading-state-grid">
-                {[1, 2, 3, 4, 5].map((n) => (
-                  <div key={n} className="skeleton-card card">
-                    <div className="skeleton-thumb"></div>
-                    <div className="skeleton-body">
-                      <div className="skeleton-line" style={{ width: '80%' }}></div>
-                      <div className="skeleton-line" style={{ width: '60%' }}></div>
+            <div className="equipment-grid-container">
+              {loading ? (
+                <div className="loading-state-grid">
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <div key={n} className="skeleton-card card">
+                      <div className="skeleton-thumb"></div>
+                      <div className="skeleton-body">
+                        <div className="skeleton-line" style={{ width: '80%' }}></div>
+                        <div className="skeleton-line" style={{ width: '60%' }}></div>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            ) : equipmentList.length > 0 ? (
-              <div className="equipment-cards-grid">
-                {equipmentList.slice(0, 5).map((item) => (
-                  <EquipmentCard
-                    key={item.id}
-                    equipment={item}
-                    onBorrowClick={(eq) => setSelectedEquipmentForBorrow(eq)}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="empty-results-box">
-                <p>No equipment found nearby.</p>
-              </div>
-            )}
+                  ))}
+                </div>
+              ) : equipmentList.length > 0 ? (
+                <div className="equipment-cards-grid">
+                  {equipmentList.slice(0, 5).map((item) => (
+                    <EquipmentCard
+                      key={item.id}
+                      equipment={item}
+                      onBorrowClick={(eq) => setSelectedEquipmentForBorrow(eq)}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="empty-results-box">
+                  <p>No equipment found nearby.</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -142,42 +146,60 @@ export const HomePage = () => {
       {/* =========================================================================
           MOSTLY RENTED
           ========================================================================= */}
-      <section className="mostly-rented-section torn-section">
+      <section className="mostly-rented-section">
         <div className="container">
-          <div className="section-header-row">
-            <div className="section-header-left">
-              <h2 className="section-heading section-heading--left">Mostly Rented</h2>
-              <span className="location-badge">
-                <MapPin size={12} />
-                Within 5 Km
-              </span>
-            </div>
-            <div className="section-header-right">
-              <span className="sort-label">Sort by</span>
-              <div className="sort-select-wrapper">
-                <select className="sort-select" defaultValue="newest">
-                  <option value="newest">Newest</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
-                  <option value="most-rented">Most Rented</option>
-                </select>
-                <ChevronDown size={14} className="sort-chevron" />
+          <div className="borrower-card-box">
+            <div className="section-header-row">
+              <div className="section-header-left">
+                <h2 className="section-box-title">Mostly Rented</h2>
+                <span className="location-badge">
+                  <MapPin size={12} />
+                  Within 5 Km
+                </span>
+              </div>
+              <div className="section-header-right">
+                <span className="sort-label">Sort by</span>
+                <div className="sort-select-wrapper">
+                  <select className="sort-select" defaultValue="newest">
+                    <option value="newest">Newest</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="most-rented">Most Rented</option>
+                  </select>
+                  <ChevronDown size={14} className="sort-chevron" />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="equipment-grid-container">
-            {equipmentList.length > 0 && (
-              <div className="equipment-cards-grid">
-                {equipmentList.slice(0, 5).map((item) => (
-                  <EquipmentCard
-                    key={item.id}
-                    equipment={item}
-                    onBorrowClick={(eq) => setSelectedEquipmentForBorrow(eq)}
-                  />
-                ))}
-              </div>
-            )}
+            <div className="equipment-grid-container">
+              {loading ? (
+                <div className="loading-state-grid">
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <div key={n} className="skeleton-card card">
+                      <div className="skeleton-thumb"></div>
+                      <div className="skeleton-body">
+                        <div className="skeleton-line" style={{ width: '80%' }}></div>
+                        <div className="skeleton-line" style={{ width: '60%' }}></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : equipmentList.length > 0 ? (
+                <div className="equipment-cards-grid">
+                  {equipmentList.slice(0, 5).map((item) => (
+                    <EquipmentCard
+                      key={item.id}
+                      equipment={item}
+                      onBorrowClick={(eq) => setSelectedEquipmentForBorrow(eq)}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="empty-results-box">
+                  <p>No equipment found.</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -185,38 +207,40 @@ export const HomePage = () => {
       {/* =========================================================================
           FAQs SECTION
           ========================================================================= */}
-      <section className="faq-section torn-section">
+      <section className="faq-section">
         <div className="container">
-          <h2 className="section-heading">FAQs</h2>
-          <p className="faq-subtitle">
-            Check the most Frequently Asked Questions before posting. Also includes help on using the Community.
-          </p>
+          <div className="borrower-card-box faq-card-box">
+            <h2 className="faq-heading">FAQs</h2>
+            <p className="faq-subtitle">
+              Check the most Frequently Asked Questions before posting. Also includes help on using the Community.
+            </p>
 
-          <div className="faq-list">
-            <div className="faq-item">
-              <div className="faq-question">
-                <span className="faq-q-text">Q. How do I return the equipment?</span>
+            <div className="faq-list">
+              <div className="faq-item">
+                <div className="faq-question">
+                  <span className="faq-q-text">Q. How do I return the equipment?</span>
+                </div>
+                <div className="faq-answer">
+                  <span className="faq-a-text">Return the equipment to the owner at the agreed time and location. Both parties can confirm the return through the platform.</span>
+                </div>
               </div>
-              <div className="faq-answer">
-                <span className="faq-a-text">Return the equipment to the owner at the agreed time and location. Both parties can confirm the return through the platform.</span>
-              </div>
-            </div>
 
-            <div className="faq-item">
-              <div className="faq-question">
-                <span className="faq-q-text">Q. What happens if I damage or lose the equipment?</span>
+              <div className="faq-item">
+                <div className="faq-question">
+                  <span className="faq-q-text">Q. What happens if I damage or lose the equipment?</span>
+                </div>
+                <div className="faq-answer">
+                  <span className="faq-a-text">Users are responsible for returning equipment in the same condition in which they received it. In case of damage or loss, the owner and borrower can resolve the issue according to the platform's policies.</span>
+                </div>
               </div>
-              <div className="faq-answer">
-                <span className="faq-a-text">Users are responsible for returning equipment in the same condition in which they received it. In case of damage or loss, the owner and borrower can resolve the issue according to the platform's policies.</span>
-              </div>
-            </div>
 
-            <div className="faq-item">
-              <div className="faq-question">
-                <span className="faq-q-text">Q. Can I extend my rental period?</span>
-              </div>
-              <div className="faq-answer">
-                <span className="faq-a-text">Yes, if the equipment hasn't been reserved by another user. You can send an extension request to the owner through the platform.</span>
+              <div className="faq-item">
+                <div className="faq-question">
+                  <span className="faq-q-text">Q. Can I extend my rental period?</span>
+                </div>
+                <div className="faq-answer">
+                  <span className="faq-a-text">Yes, if the equipment hasn't been reserved by another user. You can send an extension request to the owner through the platform.</span>
+                </div>
               </div>
             </div>
           </div>

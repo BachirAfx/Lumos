@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import rovoLogo from '../../assets/images/rovo-logo.png';
 import { Mail, Lock, Eye, EyeOff, AlertCircle, ShieldCheck, Sparkles, MapPin } from 'lucide-react';
@@ -137,6 +137,14 @@ export const LoginPage = () => {
               >
                 {isLoading ? 'Logging in...' : 'Login'}
               </button>
+            </div>
+
+            {/* Link to Signup */}
+            <div className="login-switch-auth-row">
+              <span>Don't have an account? </span>
+              <Link to="/signup" className="login-switch-auth-link">
+                Sign up
+              </Link>
             </div>
 
           </form>

@@ -1,37 +1,34 @@
 import { Link } from 'react-router-dom';
 import bannerGraphic from '../../assets/images/cant-find-banner-graphic.png';
-import { Sparkles, ArrowRight } from 'lucide-react';
 import './CantFindBanner.css';
 
 export const CantFindBanner = () => {
   return (
-    <div className="cant-find-banner card-brutal">
-      <div className="banner-content-side">
-        <div className="banner-badge">
-          <Sparkles size={14} />
-          <span>Campus Need Board</span>
+    <div className="cant-find-banner-wrapper">
+      <div className="cant-find-banner-card">
+        {/* Left Graphic */}
+        <div className="banner-graphic-col">
+          <img
+            src={bannerGraphic}
+            alt="Can't find what you need?"
+            className="banner-illustration-img"
+          />
         </div>
-        <h3 className="banner-title font-display">Can&apos;t find what you need?</h3>
-        <p className="banner-subtitle">
-          Post an equipment request to fellow students & faculty. Someone on campus probably has exactly what you need sitting in their dorm or lab!
-        </p>
-        <div className="banner-actions-group">
-          <Link to="/request-equipment" className="btn btn-yellow banner-cta-btn">
-            <span>Post a Request</span>
-            <ArrowRight size={16} />
-          </Link>
-          <Link to="/requests" className="banner-secondary-link">
-            Browse Active Student Requests →
-          </Link>
-        </div>
-      </div>
 
-      <div className="banner-graphic-side">
-        <img
-          src={bannerGraphic}
-          alt="Can't find gear illustration"
-          className="banner-illustration-img"
-        />
+        {/* Vertical Divider */}
+        <div className="banner-divider" />
+
+        {/* Right Info & CTA */}
+        <div className="banner-info-col">
+          <div className="banner-text-block">
+            <p className="banner-lead-text">Post a request and let the community know.</p>
+            <p className="banner-sub-text">Someone nearby might have it!</p>
+          </div>
+          <Link to="/request-equipment" className="banner-request-cta-btn">
+            <span>Request Equipment</span>
+            <span className="cta-arrow">&gt;</span>
+          </Link>
+        </div>
       </div>
     </div>
   );
