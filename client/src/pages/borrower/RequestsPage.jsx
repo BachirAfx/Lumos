@@ -53,7 +53,6 @@ export const RequestsPage = () => {
     <div className="requests-page-wrapper">
       <div className="container">
 
-        {/* Page Banner Header */}
         <div className="requests-hero-card card-brutal">
           <div className="requests-hero-content">
             <div className="requests-badge">
@@ -75,7 +74,6 @@ export const RequestsPage = () => {
           </div>
         </div>
 
-        {/* Filter Controls & Search */}
         <div className="requests-controls-bar card">
           <div className="controls-left">
             <div className="search-box-wrap">
@@ -118,14 +116,12 @@ export const RequestsPage = () => {
           </div>
         </div>
 
-        {/* Requests Count */}
         <div className="results-count-row">
           <span className="results-count-text">
             <strong>{requestsList.length}</strong> active community request{requestsList.length !== 1 ? 's' : ''}
           </span>
         </div>
 
-        {/* Requests Grid */}
         {loading ? (
           <div className="requests-grid">
             {[1, 2, 3].map((n) => (

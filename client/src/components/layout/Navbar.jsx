@@ -24,7 +24,6 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Close menus on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
@@ -54,13 +53,12 @@ export const Navbar = () => {
     <header className="navbar-wrapper">
       <div className="navbar-container">
 
-        {/* Left: Brand Logo + Mode Switcher */}
+
         <div className="navbar-left">
           <Link to={currentMode === 'lender' ? '/lender' : '/'} className="navbar-brand">
             <img src={broLendLogo} alt="Bro Lend Logo" className="brand-logo-img" />
           </Link>
 
-          {/* Mode Switcher Pill */}
           <div className="mode-switcher-pill">
             <button
               type="button"
@@ -81,7 +79,6 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Center: Navigation Links */}
         <nav className="navbar-center-nav">
           {currentMode === 'borrower' ? (
             <>
@@ -113,10 +110,8 @@ export const Navbar = () => {
           )}
         </nav>
 
-        {/* Right: Actions & User */}
         <div className="navbar-right">
 
-          {/* Primary Action Button */}
           {currentMode === 'borrower' ? (
             <Link to="/request-equipment" className="btn btn-primary navbar-cta-btn">
               <PlusCircle size={16} />
@@ -129,7 +124,6 @@ export const Navbar = () => {
             </Link>
           )}
 
-          {/* Notification Bell */}
           <div className="relative-container" ref={notifRef}>
             <button
               type="button"
@@ -166,7 +160,6 @@ export const Navbar = () => {
             )}
           </div>
 
-          {/* Favorites Icon */}
           <button
             type="button"
             className="icon-circle-btn"
@@ -176,7 +169,6 @@ export const Navbar = () => {
             <Heart size={18} />
           </button>
 
-          {/* User Profile Pill / Menu */}
           <div className="relative-container" ref={userMenuRef}>
             <button
               type="button"

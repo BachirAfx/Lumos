@@ -16,7 +16,6 @@
   gap: 12px;
 }
 
-/* Header */
 .request-card-header {
   display: flex;
   align-items: center;
@@ -35,7 +34,6 @@
   border-radius: var(--radius-sm);
 }
 
-/* Title */
 .request-title-text {
   font-size: 16px;
   font-weight: 700;
@@ -49,7 +47,6 @@
   min-height: 44px;
 }
 
-/* Requester Row */
 .request-requester-row {
   display: flex;
   align-items: center;
@@ -89,7 +86,6 @@
   white-space: nowrap;
 }
 
-/* Description */
 .request-description-preview {
   font-size: 13px;
   line-height: 1.5;
@@ -101,7 +97,6 @@
   text-overflow: ellipsis;
 }
 
-/* Meta Info Grid */
 .request-meta-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -146,7 +141,6 @@
   white-space: nowrap;
 }
 
-/* Footer */
 .request-card-footer {
   display: flex;
   align-items: center;

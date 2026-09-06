@@ -22,7 +22,6 @@
   flex: 1;
 }
 
-/* Image Container */
 .card-image-wrapper {
   position: relative;
   width: 100%;
@@ -42,7 +41,6 @@
   transform: scale(1.03);
 }
 
-/* Status Badge */
 .status-badge-container {
   position: absolute;
   top: 8px;
@@ -50,7 +48,6 @@
   z-index: 2;
 }
 
-/* Favorite Heart Button */
 .favorite-btn {
   position: absolute;
   top: 8px;
@@ -77,7 +74,6 @@
   background-color: #FFF1F2;
 }
 
-/* Card Body */
 .card-body-content {
   padding: 10px 12px;
   display: flex;
@@ -106,7 +102,6 @@
   min-height: 34px;
 }
 
-/* Location / Owner Row */
 .equipment-location-row {
   display: flex;
   align-items: center;
@@ -121,7 +116,6 @@
   white-space: nowrap;
 }
 
-/* Card Action Footer */
 .card-action-footer {
   display: flex;
   align-items: center;

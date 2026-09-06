@@ -2,7 +2,6 @@
   padding: 32px 0 60px;
 }
 
-/* Hero Card */
 .requests-hero-card {
   padding: 36px 40px;
   background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
@@ -47,7 +46,6 @@
   margin-top: 8px;
 }
 
-/* Controls Bar */
 .requests-controls-bar {
   display: flex;
   align-items: center;
@@ -86,7 +84,6 @@
   box-shadow: 0 0 0 3px var(--color-primary-subtle);
 }
 
-/* Urgency Pills */
 .controls-right {
   display: flex;
   align-items: center;
@@ -132,14 +129,12 @@
   color: #FFFFFF;
 }
 
-/* Requests Grid */
 .requests-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 24px;
 }
 
-/* Skeletons */
 .skeleton-request-card {
   padding: 24px;
   display: flex;

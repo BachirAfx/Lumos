@@ -79,7 +79,6 @@ export const LenderListingsPage = () => {
     <div className="lender-listings-wrapper">
       <div className="container">
 
-        {/* Page Header */}
         <div className="listings-header-row">
           <div>
             <span className="section-kicker">INVENTORY MANAGEMENT</span>
@@ -95,7 +94,6 @@ export const LenderListingsPage = () => {
           </Link>
         </div>
 
-        {/* Stats Summary Bar */}
         <div className="listings-stats-bar card-brutal">
           <div className="stat-pill">
             <Package size={18} />
@@ -122,7 +120,6 @@ export const LenderListingsPage = () => {
           </div>
         </div>
 
-        {/* Filters Bar */}
         <div className="listings-filters-bar">
           <div className="search-input-wrapper">
             <Search size={18} className="search-icon" />
@@ -168,7 +165,6 @@ export const LenderListingsPage = () => {
           </div>
         </div>
 
-        {/* Listings Grid */}
         {loading ? (
           <div className="loading-state">
             <Package size={42} className="text-muted" />
@@ -183,7 +179,6 @@ export const LenderListingsPage = () => {
               return (
                 <div key={item.id} className="listing-card-full card-brutal">
 
-                  {/* Image Section */}
                   <div className="listing-card-image-wrap">
                     <img src={item.images[0]} alt={item.title} className="listing-card-image" />
                     <div className="listing-card-overlay-badges">
@@ -193,7 +188,6 @@ export const LenderListingsPage = () => {
                     </div>
                   </div>
 
-                  {/* Card Body */}
                   <div className="listing-card-body">
                     <div className="listing-card-header">
                       <span className="listing-category-tag">{item.category.toUpperCase()}</span>
@@ -226,7 +220,6 @@ export const LenderListingsPage = () => {
                       </div>
                     </div>
 
-                    {/* Card Actions */}
                     <div className="listing-card-actions">
                       <Link to={`/equipment/${item.id}`} className="btn btn-outline btn-sm">
                         <Eye size={14} />

@@ -117,13 +117,11 @@ export const RequestEquipmentPage = () => {
     <div className="request-equipment-page">
       <div className="request-equipment-container">
 
-        {/* Back Link */}
         <Link to="/requests" className="req-back-btn">
           <ArrowLeft size={16} />
           <span>Back to Need Board</span>
         </Link>
 
-        {/* Page Heading */}
         <div className="req-page-header">
           <div className="req-header-badge">
             <Sparkles size={13} />
@@ -155,7 +153,6 @@ export const RequestEquipmentPage = () => {
         ) : (
           <form onSubmit={handleSubmit} className="req-form-stack">
 
-            {/* CARD 1: Equipment Details & Timeframe */}
             <div className="req-card-section">
               <div className="req-section-header">
                 <div>
@@ -249,7 +246,6 @@ export const RequestEquipmentPage = () => {
               </div>
             </div>
 
-            {/* CARD 2: Purpose & Description */}
             <div className="req-card-section">
               <div className="req-section-header">
                 <div>
@@ -292,7 +288,6 @@ export const RequestEquipmentPage = () => {
               </div>
             </div>
 
-            {/* CARD 3: Budget & Campus Pickup */}
             <div className="req-card-section">
               <div className="req-section-header">
                 <div>
@@ -367,7 +362,6 @@ export const RequestEquipmentPage = () => {
               </div>
             </div>
 
-            {/* CARD 4: Specific Requirements & Campus Trust */}
             <div className="req-card-section">
               <div className="req-section-header">
                 <div>
@@ -420,7 +414,6 @@ export const RequestEquipmentPage = () => {
                 </div>
               </div>
 
-              {/* Campus Honor Code Callout */}
               <div className="req-trust-callout-box">
                 <div className="req-trust-icon-circle">
                   <ShieldCheck size={20} color="#172044" />
@@ -435,7 +428,6 @@ export const RequestEquipmentPage = () => {
 
             </div>
 
-            {/* Form Footer Actions */}
             <div className="req-form-footer">
               <button
                 type="button"

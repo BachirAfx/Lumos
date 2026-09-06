@@ -56,7 +56,6 @@ export const LoginPage = () => {
     <div className="login-page-canvas">
       <div className="login-main-wrapper">
 
-        {/* Left Column: Figma Exact Login Card */}
         <div className="login-card-container">
           <h1 className="login-welcome-title">Welcome</h1>
 
@@ -75,7 +74,6 @@ export const LoginPage = () => {
 
           <form onSubmit={handleSubmit} className="login-form-stack">
 
-            {/* Email Input Field */}
             <div className="login-field-group">
               <label className="login-field-label">Email</label>
               <div className="login-input-wrap">
@@ -92,7 +90,6 @@ export const LoginPage = () => {
               </div>
             </div>
 
-            {/* Password Input Field */}
             <div className="login-field-group">
               <label className="login-field-label">Password</label>
               <div className="login-input-wrap">
@@ -117,7 +114,6 @@ export const LoginPage = () => {
               </div>
             </div>
 
-            {/* Forgot Password Link */}
             <div className="login-forgot-row">
               <button
                 type="button"
@@ -128,7 +124,6 @@ export const LoginPage = () => {
               </button>
             </div>
 
-            {/* Login Action CTA Button */}
             <div className="login-btn-row">
               <button
                 type="submit"
@@ -139,7 +134,6 @@ export const LoginPage = () => {
               </button>
             </div>
 
-            {/* Link to Signup */}
             <div className="login-switch-auth-row">
               <span>Don't have an account? </span>
               <Link to="/signup" className="login-switch-auth-link">
@@ -150,7 +144,6 @@ export const LoginPage = () => {
           </form>
         </div>
 
-        {/* Right Column: Campus Community & Brand Showcase */}
         <div className="login-showcase-panel">
           <div className="login-showcase-header">
             <img src={broLendLogo} alt="Bro Lend Logo" className="login-showcase-logo" />

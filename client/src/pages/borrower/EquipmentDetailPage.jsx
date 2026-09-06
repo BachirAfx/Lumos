@@ -23,11 +23,9 @@ export const EquipmentDetailPage = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
 
-  // Popover States (can be controlled via searchParams for direct state viewing/testing)
   const [isRequestOpen, setIsRequestOpen] = useState(searchParams.get('state') === 'request');
   const [isRecordsOpen, setIsRecordsOpen] = useState(searchParams.get('state') === 'records');
 
-  // Request Form States
   const [startDate, setStartDate] = useState('11 Sept');
   const [endDate, setEndDate] = useState('14 Sept');
   const [primaryUse, setPrimaryUse] = useState('');
@@ -35,7 +33,6 @@ export const EquipmentDetailPage = () => {
   const [requestSuccess, setRequestSuccess] = useState(false);
   const [chatFeedback, setChatFeedback] = useState(false);
 
-  // Popover Refs for Click Outside Handling
   const requestPopoverRef = useRef(null);
   const recordsPopoverRef = useRef(null);
   const requestBtnRef = useRef(null);
@@ -49,7 +46,6 @@ export const EquipmentDetailPage = () => {
         if (response.success) {
           setEquipment(response.data);
         } else {
-          // If not found by exact ID, fallback or graceful state
           setEquipment(null);
         }
       } catch (err) {
@@ -63,7 +59,6 @@ export const EquipmentDetailPage = () => {
     fetchEquipment();
   }, [id]);
 
-  // Click outside to close popovers
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -125,7 +120,6 @@ export const EquipmentDetailPage = () => {
     );
   }
 
-  // Ensure 4 image slots for the gallery
   const defaultImages = [
     'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&auto=format&fit=crop&q=80',
     'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&auto=format&fit=crop&q=80',
@@ -152,13 +146,10 @@ export const EquipmentDetailPage = () => {
     setSelectedImageIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
   };
 
-  // Pricing calculation
   const pricePerDay = equipment.pricePerDay || 150;
-  // Approximate 3-day duration charge (3 * pricePerDay or 450 default matching Figma)
   const approxDays = 3;
   const approxCharge = pricePerDay * approxDays;
 
-  // Mock rental records matching Figma Desktop - 8
   const recordsData = [
     {
       id: 'rec-1',
@@ -452,13 +443,10 @@ export const EquipmentDetailPage = () => {
     <div className="equipment-detail-page">
       <div className="equipment-detail-container">
 
-        {/* TOP SECTION: Two-Column Layout */}
         <div className="detail-top-grid">
 
-          {/* LEFT COLUMN: Gallery */}
           <div className="detail-gallery-column">
 
-            {/* Main Featured Image Card */}
             <div className="main-image-card">
               <div className="main-image-frame">
                 <img
@@ -467,7 +455,6 @@ export const EquipmentDetailPage = () => {
                   className="main-preview-img"
                 />
 
-                {/* Carousel Navigation Arrows */}
                 <button
                   type="button"
                   className="image-nav-arrow arrow-prev"
@@ -488,7 +475,6 @@ export const EquipmentDetailPage = () => {
               </div>
             </div>
 
-            {/* Thumbnail Preview Row Card */}
             <div className="thumbnails-row-card">
               <div className="thumbnails-grid">
                 {galleryImages.map((imgUrl, index) => (
@@ -507,10 +493,8 @@ export const EquipmentDetailPage = () => {
 
           </div>
 
-          {/* RIGHT COLUMN: Stack of 4 Cards */}
           <div className="detail-sidebar-column">
 
-            {/* CARD 1: Price, Title, Location & Request to Borrow CTA */}
             <div className="sidebar-card card-primary-info">
               <div className="primary-info-top-row">
                 <div className="price-display-text">
@@ -557,7 +541,6 @@ export const EquipmentDetailPage = () => {
                     Request to Borrow
                   </button>
 
-                  {/* POPOVER 1: Request to Borrow (Figma node 26:82, Desktop - 7) */}
                   {isRequestOpen && (
                     <div
                       ref={requestPopoverRef}
@@ -573,7 +556,6 @@ export const EquipmentDetailPage = () => {
                         <form onSubmit={handleSendRequest} className="request-popover-form">
                           <h3 className="popover-heading">Needed From</h3>
 
-                          {/* Date Range Selector */}
                           <div className="popover-date-row">
                             <div className="date-pill">
                               <span>{startDate}</span>
@@ -584,7 +566,6 @@ export const EquipmentDetailPage = () => {
                             </div>
                           </div>
 
-                          {/* Primary Use Input */}
                           <div className="popover-field-group">
                             <label className="popover-field-label">Primary Use</label>
                             <input
@@ -596,7 +577,6 @@ export const EquipmentDetailPage = () => {
                             />
                           </div>
 
-                          {/* Approx Charge */}
                           <div className="popover-field-group">
                             <label className="popover-field-label">Approx Charge</label>
                             <div className="charge-badge">
@@ -604,7 +584,6 @@ export const EquipmentDetailPage = () => {
                             </div>
                           </div>
 
-                          {/* Submit CTA */}
                           <button
                             type="submit"
                             className="btn-popover-send"
@@ -620,7 +599,6 @@ export const EquipmentDetailPage = () => {
               </div>
             </div>
 
-            {/* CARD 2: Owner Info Card */}
             <div className="sidebar-card card-owner-profile">
               <div className="owner-profile-top-row">
                 <div className="owner-avatar-info">
@@ -658,7 +636,6 @@ export const EquipmentDetailPage = () => {
               </div>
             </div>
 
-            {/* CARD 3: Have Similar? List here */}
             <div
               className="sidebar-card card-have-similar"
               onClick={() => navigate('/lender/add-item')}
@@ -669,7 +646,6 @@ export const EquipmentDetailPage = () => {
               <span className="have-similar-subtitle">List here</span>
             </div>
 
-            {/* CARD 4: Condition & Records */}
             <div className="sidebar-card card-condition-records">
               <div className="condition-badge-frame">
                 <span className="condition-text">
@@ -690,7 +666,6 @@ export const EquipmentDetailPage = () => {
                   Records
                 </button>
 
-                {/* POPOVER 2: Records Popover (Figma node 26:221, Desktop - 8) */}
                 {isRecordsOpen && (
                   <div
                     ref={recordsPopoverRef}
@@ -739,7 +714,6 @@ export const EquipmentDetailPage = () => {
 
         </div>
 
-        {/* BOTTOM SECTION: Description Full Width Card */}
         <div className="detail-description-card">
           <h2 className="description-card-heading">Description</h2>
           <div className="description-content-frame">

@@ -103,7 +103,6 @@ export const SignUpPage = () => {
     <div className="signup-page-canvas">
       <div className="signup-main-wrapper">
 
-        {/* Left Column: Stationery Sign Up Card */}
         <div className="signup-card-container">
           <h1 className="signup-welcome-title">Create Account</h1>
 
@@ -116,7 +115,6 @@ export const SignUpPage = () => {
 
           <form onSubmit={handleSubmit} className="signup-form-stack" noValidate>
 
-            {/* Full Name Field */}
             <div className="signup-field-group">
               <label className="signup-field-label">Full Name</label>
               <div className="signup-input-wrap">
@@ -134,7 +132,6 @@ export const SignUpPage = () => {
               </div>
             </div>
 
-            {/* University Email Field */}
             <div className="signup-field-group">
               <label className="signup-field-label">University Email</label>
               <div className="signup-input-wrap">
@@ -152,7 +149,6 @@ export const SignUpPage = () => {
               </div>
             </div>
 
-            {/* Password Field */}
             <div className="signup-field-group">
               <label className="signup-field-label">Password</label>
               <div className="signup-input-wrap">
@@ -178,7 +174,6 @@ export const SignUpPage = () => {
               </div>
             </div>
 
-            {/* Confirm Password Field */}
             <div className="signup-field-group">
               <label className="signup-field-label">Confirm Password</label>
               <div className="signup-input-wrap">
@@ -204,7 +199,6 @@ export const SignUpPage = () => {
               </div>
             </div>
 
-            {/* Submit Action CTA Button */}
             <div className="signup-btn-row">
               <button
                 type="submit"
@@ -215,7 +209,6 @@ export const SignUpPage = () => {
               </button>
             </div>
 
-            {/* Switch to Login Link */}
             <div className="signup-switch-auth-row">
               <span>Already have an account? </span>
               <Link to="/login" className="signup-switch-auth-link">
@@ -226,7 +219,6 @@ export const SignUpPage = () => {
           </form>
         </div>
 
-        {/* Right Column: Campus Community & Brand Showcase */}
         <div className="signup-showcase-panel">
           <div className="signup-showcase-header">
             <img src={broLendLogo} alt="Bro Lend Logo" className="signup-showcase-logo" />

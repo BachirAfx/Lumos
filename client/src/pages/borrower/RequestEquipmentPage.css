@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Borrower Request Equipment Page - Stationery Paper Aesthetic
-   Matches Figma Stationery Theme (#F4EFE6 canvas, #FFFDF8 card sections)
-   ========================================================================== */
 
 .request-equipment-page {
   min-height: calc(100vh - 72px);
@@ -17,9 +13,6 @@
   padding: 0 24px;
 }
 
-/* --------------------------------------------------------------------------
-   Back Button & Header
-   -------------------------------------------------------------------------- */
 .req-back-btn {
   display: inline-flex;
   align-items: center;
@@ -75,9 +68,6 @@
   line-height: 1.5;
 }
 
-/* --------------------------------------------------------------------------
-   Alerts & Feedback
-   -------------------------------------------------------------------------- */
 .req-alert-error {
   display: flex;
   align-items: center;
@@ -128,9 +118,6 @@
   margin: 0 auto;
 }
 
-/* --------------------------------------------------------------------------
-   Card Sections
-   -------------------------------------------------------------------------- */
 .req-card-section {
   background-color: #FFFDF8;
   border: 1px solid #E8DED2;
@@ -174,9 +161,6 @@
   flex-shrink: 0;
 }
 
-/* --------------------------------------------------------------------------
-   Form Controls
-   -------------------------------------------------------------------------- */
 .req-form-group {
   display: flex;
   flex-direction: column;
@@ -238,7 +222,6 @@
   gap: 16px;
 }
 
-/* Affix & Icon Wrappers */
 .req-affix-input-wrap {
   position: relative;
   display: flex;
@@ -283,9 +266,6 @@
   padding-left: 40px;
 }
 
-/* --------------------------------------------------------------------------
-   Chips & Requirement Tags
-   -------------------------------------------------------------------------- */
 .req-chip-entry-row {
   display: flex;
   gap: 8px;
@@ -346,9 +326,6 @@
   color: #E11D48;
 }
 
-/* --------------------------------------------------------------------------
-   Trust Callout Box
-   -------------------------------------------------------------------------- */
 .req-trust-callout-box {
   display: flex;
   align-items: flex-start;
@@ -386,9 +363,6 @@
   line-height: 1.5;
 }
 
-/* --------------------------------------------------------------------------
-   Form Footer Actions
-   -------------------------------------------------------------------------- */
 .req-form-footer {
   display: flex;
   justify-content: flex-end;
@@ -442,9 +416,6 @@
   transform: none;
 }
 
-/* --------------------------------------------------------------------------
-   Responsive Layout
-   -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .req-grid-2 {
     grid-template-columns: 1fr;

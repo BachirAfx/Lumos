@@ -13,10 +13,9 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [currentMode, setCurrentMode] = useState('borrower'); // 'borrower' or 'lender'
+  const [currentMode, setCurrentMode] = useState('borrower'); 
   const [loading, setLoading] = useState(true);
 
-  // Initialize user on mount (mock auto-login for development)
   useEffect(() => {
     const initializeAuth = async () => {
       try {

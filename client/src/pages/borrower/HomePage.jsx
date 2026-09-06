@@ -43,9 +43,6 @@ export const HomePage = () => {
   return (
     <div className="home-page-wrapper">
 
-      {/* =========================================================================
-          SEARCH BAR SECTION
-          ========================================================================= */}
       <section className="search-section">
         <div className="container">
           <form className="main-search-box" onSubmit={handleSearchSubmit}>
@@ -61,9 +58,6 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* =========================================================================
-          BROWSE BY CATEGORY
-          ========================================================================= */}
       <section className="categories-section">
         <div className="container">
           <div className="categories-container-box">
@@ -73,9 +67,6 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* =========================================================================
-          NEWLY LISTED NEAR YOU
-          ========================================================================= */}
       <section className="featured-gear-section">
         <div className="container">
           <div className="borrower-card-box">
@@ -134,18 +125,12 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* =========================================================================
-          "CAN'T FIND WHAT YOU NEED?" BANNER
-          ========================================================================= */}
       <section className="banner-section">
         <div className="container">
           <CantFindBanner />
         </div>
       </section>
 
-      {/* =========================================================================
-          MOSTLY RENTED
-          ========================================================================= */}
       <section className="mostly-rented-section">
         <div className="container">
           <div className="borrower-card-box">
@@ -204,9 +189,6 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* =========================================================================
-          FAQs SECTION
-          ========================================================================= */}
       <section className="faq-section">
         <div className="container">
           <div className="borrower-card-box faq-card-box">
@@ -247,7 +229,6 @@ export const HomePage = () => {
         </div>
       </section>
 
-      {/* Borrow Modal for instant booking */}
       <BorrowModal
         equipment={selectedEquipmentForBorrow}
         isOpen={!!selectedEquipmentForBorrow}

@@ -31,7 +31,6 @@ export const RequestCard = ({ request }) => {
     <div className="request-card card card-brutal">
       <Link to={`/requests/${id}`} className="request-card-link">
 
-        {/* Header with Urgency & Category */}
         <div className="request-card-header">
           <span className={`badge ${urgencyBadge.color}`}>
             <AlertCircle size={12} />
@@ -40,10 +39,8 @@ export const RequestCard = ({ request }) => {
           <span className="request-category-chip">{category}</span>
         </div>
 
-        {/* Request Title */}
         <h3 className="request-title-text">{title}</h3>
 
-        {/* Requester Info */}
         <div className="request-requester-row">
           <img src={requesterAvatar} alt={requesterName} className="requester-avatar" />
           <div className="requester-info">
@@ -52,10 +49,8 @@ export const RequestCard = ({ request }) => {
           </div>
         </div>
 
-        {/* Description Preview */}
         <p className="request-description-preview">{description}</p>
 
-        {/* Meta Info Grid */}
         <div className="request-meta-grid">
           <div className="meta-item">
             <DollarSign size={14} className="meta-icon" />
@@ -74,7 +69,6 @@ export const RequestCard = ({ request }) => {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="request-card-footer">
           <div className="request-responses-info">
             <MessageCircle size={14} />

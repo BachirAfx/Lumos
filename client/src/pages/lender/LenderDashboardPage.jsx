@@ -33,16 +33,13 @@ export const LenderDashboardPage = () => {
         const equipRes = await getAllEquipment();
         if (equipRes.success) {
           const all = equipRes.data;
-          // Filter or mock listings for user
           const userItems = all.slice(0, 6);
           setMyListings(userItems);
 
-          // Lent items (items marked as rented or simulated lent list)
           const rented = all.filter(item => item.status === 'rented');
           if (rented.length > 0) {
             setLentItems(rented);
           } else {
-            // Provide realistic lent items from catalog for visual fidelity
             setLentItems([
               { ...all[1], id: 'lent-1', status: 'rented' },
               { ...all[4], id: 'lent-2', status: 'rented' },
@@ -107,7 +104,6 @@ export const LenderDashboardPage = () => {
     <div className="lender-dashboard-page">
       <div className="lender-dashboard-container">
 
-        {/* Top Header Row */}
         <div className="lender-header-section">
           <div className="lender-welcome-text">
             <h1 className="lender-greeting-title">Hello {displayName}</h1>
@@ -120,9 +116,7 @@ export const LenderDashboardPage = () => {
           </Link>
         </div>
 
-        {/* 3 Pastel Metric Cards */}
         <div className="lender-pastel-cards-grid">
-          {/* Pastel Blue Card */}
           <div className="pastel-metric-card pastel-blue">
             <div className="pastel-card-content">
               <span className="pastel-card-value">
@@ -135,7 +129,6 @@ export const LenderDashboardPage = () => {
             </Link>
           </div>
 
-          {/* Pastel Green Card */}
           <div className="pastel-metric-card pastel-green">
             <div className="pastel-card-content">
               <span className="pastel-card-value">
@@ -148,7 +141,6 @@ export const LenderDashboardPage = () => {
             </Link>
           </div>
 
-          {/* Pastel Peach Card */}
           <div className="pastel-metric-card pastel-peach">
             <div className="pastel-card-content">
               <span className="pastel-card-value">
@@ -162,13 +154,10 @@ export const LenderDashboardPage = () => {
           </div>
         </div>
 
-        {/* Main 2-Column Content Grid */}
         <div className="lender-main-grid">
 
-          {/* Left / Main Column */}
           <div className="lender-left-column">
 
-            {/* Box 1: Your Listings */}
             <div className="lender-card-box">
               <div className="card-box-header">
                 <h2 className="card-box-title">Your Listings</h2>
@@ -250,7 +239,6 @@ export const LenderDashboardPage = () => {
               </div>
             </div>
 
-            {/* Box 2: Lent Items */}
             <div className="lender-card-box">
               <div className="card-box-header">
                 <h2 className="card-box-title">Lent Items</h2>
@@ -333,7 +321,6 @@ export const LenderDashboardPage = () => {
 
           </div>
 
-          {/* Right Column: Borrow Requests */}
           <div className="lender-right-column">
             <div className="lender-card-box borrow-requests-box">
               <div className="card-box-header">

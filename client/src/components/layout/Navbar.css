@@ -16,7 +16,6 @@
   gap: 24px;
 }
 
-/* Left Section: Logo + Mode Switcher */
 .navbar-left {
   display: flex;
   align-items: center;
@@ -35,7 +34,6 @@
   object-fit: contain;
 }
 
-/* Mode Switcher Pill */
 .mode-switcher-pill {
   display: flex;
   background-color: var(--color-card-offwhite);
@@ -69,7 +67,6 @@
   box-shadow: var(--shadow-card);
 }
 
-/* Center: Navigation Links */
 .navbar-center-nav {
   display: flex;
   align-items: center;
@@ -100,7 +97,6 @@
   border-color: var(--color-purple);
 }
 
-/* Right Section: Actions */
 .navbar-right {
   display: flex;
   align-items: center;
@@ -115,7 +111,6 @@
   border-radius: var(--radius-md);
 }
 
-/* Icon Buttons */
 .relative-container {
   position: relative;
 }
@@ -157,7 +152,6 @@
   border: 2px solid #FFFFFF;
 }
 
-/* User Profile Button */
 .user-profile-btn {
   display: flex;
   align-items: center;
@@ -193,7 +187,6 @@
   color: var(--color-text-muted);
 }
 
-/* Popover / Dropdown */
 .dropdown-popover {
   position: absolute;
   top: calc(100% + 8px);
@@ -266,7 +259,6 @@
   display: block;
 }
 
-/* User Menu Popover */
 .user-menu-popover {
   width: 240px;
   padding: 12px;
@@ -344,7 +336,6 @@
   background-color: var(--color-accent-pink-subtle);
 }
 
-/* Responsive */
 @media (max-width: 1100px) {
   .navbar-center-nav {
     gap: 4px;

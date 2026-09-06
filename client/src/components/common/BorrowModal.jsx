@@ -17,7 +17,6 @@ export const BorrowModal = ({ equipment, isOpen, onClose, onSuccess }) => {
 
   if (!isOpen || !equipment) return null;
 
-  // Calculate duration and prices
   const start = new Date(startDate);
   const end = new Date(endDate);
   const diffTime = Math.max(0, end - start);
@@ -60,7 +59,6 @@ export const BorrowModal = ({ equipment, isOpen, onClose, onSuccess }) => {
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-container card-brutal" onClick={(e) => e.stopPropagation()}>
 
-        {/* Modal Header */}
         <div className="modal-header">
           <h2 className="modal-title font-display">Confirm Gear Rental</h2>
           <button type="button" className="close-modal-btn" onClick={onClose}>
@@ -81,7 +79,6 @@ export const BorrowModal = ({ equipment, isOpen, onClose, onSuccess }) => {
         ) : (
           <form onSubmit={handleSubmit} className="modal-form">
 
-            {/* Equipment Summary Banner */}
             <div className="modal-equipment-summary">
               <img src={equipment.images[0]} alt={equipment.title} className="modal-equipment-thumb" />
               <div className="modal-equipment-details">
@@ -100,7 +97,6 @@ export const BorrowModal = ({ equipment, isOpen, onClose, onSuccess }) => {
               </div>
             )}
 
-            {/* Date Pickers */}
             <div className="date-pickers-row">
               <div className="form-field">
                 <label className="field-label">Pickup Date</label>
@@ -133,7 +129,6 @@ export const BorrowModal = ({ equipment, isOpen, onClose, onSuccess }) => {
               </div>
             </div>
 
-            {/* Note to Lender */}
             <div className="form-field">
               <label className="field-label">Note for {equipment.ownerName} (Optional)</label>
               <textarea
@@ -145,7 +140,6 @@ export const BorrowModal = ({ equipment, isOpen, onClose, onSuccess }) => {
               />
             </div>
 
-            {/* Price Breakdown Breakdown */}
             <div className="price-breakdown-card">
               <div className="breakdown-row">
                 <span>₹{equipment.pricePerDay} × {durationDays} day{durationDays > 1 ? 's' : ''}</span>
@@ -166,7 +160,6 @@ export const BorrowModal = ({ equipment, isOpen, onClose, onSuccess }) => {
               </div>
             </div>
 
-            {/* Security Guarantee Note */}
             <div className="guarantee-note-box">
               <ShieldCheck size={18} className="text-primary-color flex-shrink-0" />
               <p className="text-xs text-secondary">
@@ -174,7 +167,6 @@ export const BorrowModal = ({ equipment, isOpen, onClose, onSuccess }) => {
               </p>
             </div>
 
-            {/* Modal Actions */}
             <div className="modal-actions-footer">
               <button
                 type="button"

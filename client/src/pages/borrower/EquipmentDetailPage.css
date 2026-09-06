@@ -1,7 +1,3 @@
-/* ==========================================================================
-   ROVO EQUIPMENT DETAIL PAGE STYLES
-   Matching Figma Page 1 (Borrower) — Desktop - 6, Desktop - 7, Desktop - 8
-   ========================================================================== */
 
 .equipment-detail-page {
   background-color: var(--color-canvas, #F4EFE6);
@@ -15,9 +11,6 @@
   padding: 0 24px;
 }
 
-/* ==========================================================================
-   TOP SECTION: 2-COLUMN GRID (Gallery & Sidebar)
-   ========================================================================== */
 .detail-top-grid {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
@@ -26,9 +19,6 @@
   margin-bottom: 24px;
 }
 
-/* --------------------------------------------------------------------------
-   LEFT COLUMN: Gallery
-   -------------------------------------------------------------------------- */
 .detail-gallery-column {
   display: flex;
   flex-direction: column;
@@ -94,7 +84,6 @@
   right: 16px;
 }
 
-/* Thumbnail Previews Row */
 .thumbnails-row-card {
   background-color: #FFFFFF;
   border-radius: 20px;
@@ -136,9 +125,6 @@
   display: block;
 }
 
-/* --------------------------------------------------------------------------
-   RIGHT COLUMN: Sidebar Stack of 4 Cards
-   -------------------------------------------------------------------------- */
 .detail-sidebar-column {
   display: flex;
   flex-direction: column;
@@ -153,7 +139,6 @@
   border: 1px solid rgba(232, 222, 210, 0.7);
 }
 
-/* --- Card 1: Primary Info (Price, Title, Location, Request CTA) --- */
 .card-primary-info {
   position: relative;
 }
@@ -252,7 +237,6 @@
   transform: translateY(-1px);
 }
 
-/* POPOVER 1: Request to Borrow (Figma node 26:82) */
 .popover-request-box {
   position: absolute;
   top: calc(100% + 14px);
@@ -396,7 +380,6 @@
   margin: 0;
 }
 
-/* --- Card 2: Owner Profile Card --- */
 .card-owner-profile {
   display: flex;
   flex-direction: column;
@@ -498,7 +481,6 @@
   transform: translateY(-1px);
 }
 
-/* --- Card 3: Have Similar? Banner Card --- */
 .card-have-similar {
   background-color: #A69279;
   color: #FFFFFF;
@@ -535,7 +517,6 @@
   margin-top: 1px;
 }
 
-/* --- Card 4: Condition & Records --- */
 .card-condition-records {
   display: flex;
   flex-direction: column;
@@ -585,7 +566,6 @@
   transform: translateY(-1px);
 }
 
-/* POPOVER 2: Records Popover (Figma node 26:221) */
 .popover-records-box {
   position: absolute;
   bottom: calc(100% + 14px);
@@ -697,9 +677,6 @@
   color: #8C8C8C;
 }
 
-/* ==========================================================================
-   BOTTOM SECTION: Description Card
-   ========================================================================== */
 .detail-description-card {
   background-color: #FFFFFF;
   border-radius: 20px;
@@ -773,9 +750,6 @@
   color: #6B7280;
 }
 
-/* ==========================================================================
-   LOADING & NOT FOUND STATES
-   ========================================================================== */
 .detail-loading-state {
   display: flex;
   flex-direction: column;
@@ -849,9 +823,6 @@
   background-color: #0F1730;
 }
 
-/* ==========================================================================
-   ANIMATIONS & RESPONSIVE
-   ========================================================================== */
 @keyframes popoverSlideDown {
   from {
     opacity: 0;

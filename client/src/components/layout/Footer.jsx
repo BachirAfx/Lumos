@@ -8,10 +8,8 @@ export const Footer = () => {
     <footer className="footer-wrapper">
       <div className="footer-container">
 
-        {/* Upper Footer Grid */}
         <div className="footer-grid">
 
-          {/* Col 1: Brand & Bio */}
           <div className="footer-brand-col">
             <img src={broLendLogo} alt="Bro Lend Logo" className="footer-logo-img" />
             <p className="footer-bio-text">
@@ -23,7 +21,6 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Col 2: Borrowing Categories */}
           <div className="footer-col">
             <h4 className="footer-heading">Gear Categories</h4>
             <ul className="footer-links">
@@ -35,7 +32,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Col 3: Community & Trust */}
           <div className="footer-col">
             <h4 className="footer-heading">Trust & Security</h4>
             <ul className="footer-links">
@@ -47,7 +43,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Col 4: For Lenders & Makers */}
           <div className="footer-col">
             <h4 className="footer-heading">Lender Program</h4>
             <ul className="footer-links">
@@ -60,7 +55,6 @@ export const Footer = () => {
 
         </div>
 
-        {/* Lower Footer Bottom Bar */}
         <div className="footer-bottom-bar">
           <p className="copyright-text">
             © {new Date().getFullYear()} Rovo Campus Gear Sharing Network. Built with passion for campus innovators.

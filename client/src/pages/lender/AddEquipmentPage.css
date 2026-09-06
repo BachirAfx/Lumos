@@ -1,7 +1,3 @@
-/* ==========================================================================
-   List New Equipment Page - Exact Figma Page 2 Desktop - 2 Implementation
-   Stationery Paper Aesthetic (#F4EFE6 canvas, #FFFDF8 card sections)
-   ========================================================================== */
 
 .add-equipment-page {
   min-height: calc(100vh - 72px);
@@ -17,9 +13,6 @@
   padding: 0 24px;
 }
 
-/* --------------------------------------------------------------------------
-   Back Button & Header
-   -------------------------------------------------------------------------- */
 .add-back-btn {
   display: inline-flex;
   align-items: center;
@@ -56,9 +49,6 @@
   line-height: 1.5;
 }
 
-/* --------------------------------------------------------------------------
-   Alerts & Feedback
-   -------------------------------------------------------------------------- */
 .add-alert-error {
   display: flex;
   align-items: center;
@@ -109,9 +99,6 @@
   margin: 0 auto;
 }
 
-/* --------------------------------------------------------------------------
-   Card Sections
-   -------------------------------------------------------------------------- */
 .add-card-section {
   background-color: #FFFDF8;
   border: 1px solid #E8DED2;
@@ -155,9 +142,6 @@
   flex-shrink: 0;
 }
 
-/* --------------------------------------------------------------------------
-   Form Controls
-   -------------------------------------------------------------------------- */
 .add-form-group {
   display: flex;
   flex-direction: column;
@@ -219,7 +203,6 @@
   margin-bottom: 18px;
 }
 
-/* Affix Wrappers */
 .add-affix-input-wrap {
   position: relative;
   display: flex;
@@ -264,9 +247,6 @@
   padding-left: 40px;
 }
 
-/* --------------------------------------------------------------------------
-   Upload Dropzone & Photos Grid
-   -------------------------------------------------------------------------- */
 .add-dropzone-box {
   border: 2px dashed #D5C9B8;
   border-radius: 16px;
@@ -391,9 +371,6 @@
   background-color: #F4ECE0;
 }
 
-/* --------------------------------------------------------------------------
-   Chips & Multi-entry Rows
-   -------------------------------------------------------------------------- */
 .add-chip-entry-row {
   display: flex;
   gap: 8px;
@@ -459,9 +436,6 @@
   color: #E11D48;
 }
 
-/* --------------------------------------------------------------------------
-   Form Footer Actions
-   -------------------------------------------------------------------------- */
 .add-form-footer {
   display: flex;
   justify-content: flex-end;
@@ -515,9 +489,6 @@
   transform: none;
 }
 
-/* --------------------------------------------------------------------------
-   Responsive Layout
-   -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .add-grid-2,
   .add-grid-3 {

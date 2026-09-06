@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Lender Dashboard Page - Exact Figma Page 2 Desktop - 1 Implementation
-   Stationery Paper Aesthetic (#F4EFE6 canvas, #FFFDF8 cards, pastel metrics)
-   ========================================================================== */
 
 .lender-dashboard-page {
   min-height: calc(100vh - 72px);
@@ -17,9 +13,6 @@
   padding: 0 24px;
 }
 
-/* --------------------------------------------------------------------------
-   Top Header Row
-   -------------------------------------------------------------------------- */
 .lender-header-section {
   display: flex;
   justify-content: space-between;
@@ -66,9 +59,6 @@
   box-shadow: 0 5px 16px rgba(23, 32, 68, 0.22);
 }
 
-/* --------------------------------------------------------------------------
-   3 Pastel Metric Cards Grid
-   -------------------------------------------------------------------------- */
 .lender-pastel-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -146,9 +136,6 @@
   background-color: #FBF9F5;
 }
 
-/* --------------------------------------------------------------------------
-   Main 2-Column Content Grid
-   -------------------------------------------------------------------------- */
 .lender-main-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 380px;
@@ -172,7 +159,6 @@
   height: 100%;
 }
 
-/* Card Box Containers */
 .lender-card-box {
   background-color: #FFFDF8;
   border: 1px solid #E8DED2;
@@ -224,9 +210,6 @@
   transform: translateX(3px);
 }
 
-/* --------------------------------------------------------------------------
-   Carousel Wrappers & Cards (Your Listings & Lent Items)
-   -------------------------------------------------------------------------- */
 .carousel-wrapper {
   position: relative;
   display: flex;
@@ -243,12 +226,12 @@
   padding: 4px 2px 8px 2px;
   width: 100%;
   min-width: 0;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 
 .carousel-track::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none; 
 }
 
 .carousel-nav-btn {
@@ -283,7 +266,6 @@
   right: -14px;
 }
 
-/* Individual Gear Carousel Card */
 .gear-carousel-card {
   flex: 0 0 230px;
   width: 230px;
@@ -321,7 +303,6 @@
   transform: scale(1.03);
 }
 
-/* Status Badges */
 .gear-status-badge {
   position: absolute;
   top: 10px;
@@ -360,7 +341,6 @@
   background-color: #7A2828;
 }
 
-/* Heart Save Button */
 .gear-heart-btn {
   position: absolute;
   top: 10px;
@@ -383,7 +363,6 @@
   background-color: #FFFFFF;
 }
 
-/* Gear Info Area */
 .gear-card-info {
   padding: 12px 14px;
   display: flex;
@@ -437,9 +416,6 @@
   color: #172044;
 }
 
-/* --------------------------------------------------------------------------
-   Right Column: Borrow Requests Stack
-   -------------------------------------------------------------------------- */
 .borrow-requests-box {
   height: 100%;
 }
@@ -538,9 +514,6 @@
   transform: scale(1.08);
 }
 
-/* --------------------------------------------------------------------------
-   Responsive Design
-   -------------------------------------------------------------------------- */
 @media (max-width: 1080px) {
   .lender-main-grid {
     grid-template-columns: 1fr;

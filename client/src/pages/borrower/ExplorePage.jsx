@@ -22,7 +22,6 @@ export const ExplorePage = () => {
   const [maxPrice, setMaxPrice] = useState(500);
   const [selectedEquipmentForBorrow, setSelectedEquipmentForBorrow] = useState(null);
 
-  // Sync category & search from URL search params
   useEffect(() => {
     const cat = searchParams.get('category') || 'all';
     const search = searchParams.get('search') || '';
@@ -98,7 +97,6 @@ export const ExplorePage = () => {
     <div className="explore-page-wrapper">
       <div className="container">
 
-        {/* Page Header */}
         <div className="explore-header-row">
           <div>
             <span className="section-kicker">CAMPUS INVENTORY</span>
@@ -108,7 +106,6 @@ export const ExplorePage = () => {
             </p>
           </div>
 
-          {/* Search Bar */}
           <form className="explore-search-bar" onSubmit={handleSearchSubmit}>
             <Search size={18} className="search-icon" />
             <input
@@ -135,7 +132,6 @@ export const ExplorePage = () => {
           </form>
         </div>
 
-        {/* Category Pills Bar */}
         <div className="explore-categories-box">
           <CategoryPillBar
             activeCategory={selectedCategory}
@@ -143,7 +139,6 @@ export const ExplorePage = () => {
           />
         </div>
 
-        {/* Filters & Sort Controls Bar */}
         <div className="controls-bar">
           <div className="controls-left">
             <div className="filter-badge-item">
@@ -151,7 +146,6 @@ export const ExplorePage = () => {
               <span className="filter-label-text">Filter:</span>
             </div>
 
-            {/* Toggle Available Only */}
             <label className="checkbox-toggle-label">
               <input
                 type="checkbox"
@@ -162,7 +156,6 @@ export const ExplorePage = () => {
               <span className="toggle-text">Available Now Only</span>
             </label>
 
-            {/* Max Price Slider */}
             <div className="price-slider-group">
               <span className="slider-label">Max: <strong>₹{maxPrice}/day</strong></span>
               <input
@@ -178,7 +171,6 @@ export const ExplorePage = () => {
           </div>
 
           <div className="controls-right">
-            {/* Active Filters Clear Button */}
             {activeFiltersCount > 0 && (
               <button type="button" className="clear-filters-btn" onClick={clearAllFilters}>
                 <X size={14} />
@@ -186,7 +178,6 @@ export const ExplorePage = () => {
               </button>
             )}
 
-            {/* Sort Dropdown */}
             <div className="sort-dropdown-group">
               <ArrowUpDown size={14} className="sort-icon" />
               <select
@@ -202,16 +193,13 @@ export const ExplorePage = () => {
           </div>
         </div>
 
-        {/* OUTER PAPER CONTAINER: Cohesive Stationery Box around Equipment Grid */}
         <div className="browse-inventory-box">
-          {/* Results Counter */}
           <div className="results-count-row">
             <span className="results-count-text">
               Showing <strong>{equipmentList.length}</strong> equipment item{equipmentList.length !== 1 ? 's' : ''}
             </span>
           </div>
 
-          {/* Equipment Grid */}
           {loading ? (
             <div className="equipment-cards-grid">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
@@ -255,7 +243,6 @@ export const ExplorePage = () => {
 
       </div>
 
-      {/* Borrow Modal */}
       <BorrowModal
         equipment={selectedEquipmentForBorrow}
         isOpen={!!selectedEquipmentForBorrow}

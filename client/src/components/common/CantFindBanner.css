@@ -43,7 +43,6 @@
   display: block;
 }
 
-/* Vertical Divider */
 .banner-divider {
   width: 1.5px;
   height: 52px;
@@ -51,7 +50,6 @@
   flex-shrink: 0;
 }
 
-/* Info Column */
 .banner-info-col {
   display: flex;
   flex-direction: column;
@@ -84,7 +82,6 @@
   line-height: 1.3;
 }
 
-/* CTA Button */
 .banner-request-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -118,7 +115,6 @@
   transform: translateX(2px);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .cant-find-banner-card {
     flex-direction: column;

@@ -34,7 +34,6 @@ export const EquipmentCard = ({ equipment, onBorrowClick }) => {
     <div className="equipment-card card">
       <Link to={`/equipment/${id}`} className="equipment-card-link">
 
-        {/* Image Container with Badges & Action */}
         <div className="card-image-wrapper">
           <img
             src={images[0] || 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&auto=format&fit=crop&q=80'}
@@ -42,14 +41,12 @@ export const EquipmentCard = ({ equipment, onBorrowClick }) => {
             className="equipment-thumbnail-img"
           />
 
-          {/* Status Badge */}
           <div className="status-badge-container">
             <span className={`badge ${isAvailable ? 'badge-available' : 'badge-lent'}`}>
               {isAvailable ? 'Available' : 'Lent'}
             </span>
           </div>
 
-          {/* Favorite Heart Button */}
           <button
             type="button"
             className={`favorite-btn ${isFavorite ? 'favorited' : ''}`}
@@ -60,7 +57,6 @@ export const EquipmentCard = ({ equipment, onBorrowClick }) => {
           </button>
         </div>
 
-        {/* Card Body */}
         <div className="card-body-content">
           <div className="card-title-group">
             <h3 className="equipment-title-text" title={title}>{title}</h3>
@@ -74,7 +70,6 @@ export const EquipmentCard = ({ equipment, onBorrowClick }) => {
 
       </Link>
 
-      {/* Card Action Footer */}
       <div className="card-action-footer">
         <div className="price-tag-badge">
           <span className="price-currency">₹</span>

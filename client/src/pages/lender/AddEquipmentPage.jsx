@@ -151,13 +151,11 @@ export const AddEquipmentPage = () => {
     <div className="add-equipment-page">
       <div className="add-equipment-container">
 
-        {/* Back Link */}
         <Link to="/lender" className="add-back-btn">
           <ArrowLeft size={16} />
           <span>Back to Dashboard</span>
         </Link>
 
-        {/* Page Heading */}
         <div className="add-page-header">
           <h1 className="add-page-title">List New Equipment</h1>
           <p className="add-page-subtitle">
@@ -185,7 +183,6 @@ export const AddEquipmentPage = () => {
         ) : (
           <form onSubmit={handleSubmit} className="add-form-stack">
 
-            {/* CARD 1: Basic Details */}
             <div className="add-card-section">
               <div className="add-section-header">
                 <h2 className="add-section-title">Basic Details</h2>
@@ -253,7 +250,6 @@ export const AddEquipmentPage = () => {
               </div>
             </div>
 
-            {/* CARD 2: Upload Photos */}
             <div className="add-card-section">
               <div className="add-section-header">
                 <div>
@@ -263,7 +259,6 @@ export const AddEquipmentPage = () => {
                 <span className="add-section-pill">Step 2 of 4</span>
               </div>
 
-              {/* Upload Dropzone */}
               <div className="add-dropzone-box" onClick={handleAddSampleImage}>
                 <div className="dropzone-inner">
                   <div className="dropzone-icon-circle">
@@ -276,7 +271,6 @@ export const AddEquipmentPage = () => {
                 </div>
               </div>
 
-              {/* Photo Previews */}
               {images.length > 0 && (
                 <div className="add-photos-grid">
                   {images.map((imgUrl, idx) => (
@@ -307,7 +301,6 @@ export const AddEquipmentPage = () => {
               )}
             </div>
 
-            {/* CARD 3: Pricing & Availability */}
             <div className="add-card-section">
               <div className="add-section-header">
                 <h2 className="add-section-title">Pricing & Location</h2>
@@ -399,14 +392,12 @@ export const AddEquipmentPage = () => {
               </div>
             </div>
 
-            {/* CARD 4: Included Accessories & Rules */}
             <div className="add-card-section">
               <div className="add-section-header">
                 <h2 className="add-section-title">Included Accessories & Rules</h2>
                 <span className="add-section-pill">Step 4 of 4</span>
               </div>
 
-              {/* Accessories */}
               <div className="add-form-group">
                 <label className="add-label">Included Accessories & Cables</label>
                 <div className="add-chip-entry-row">
@@ -450,7 +441,6 @@ export const AddEquipmentPage = () => {
                 </div>
               </div>
 
-              {/* Rules */}
               <div className="add-form-group" style={{ marginTop: '16px' }}>
                 <label className="add-label">Usage Rules & Student Requirements</label>
                 <div className="add-chip-entry-row">
@@ -495,7 +485,6 @@ export const AddEquipmentPage = () => {
               </div>
             </div>
 
-            {/* Form Footer Actions */}
             <div className="add-form-footer">
               <button
                 type="button"

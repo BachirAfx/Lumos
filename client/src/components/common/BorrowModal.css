@@ -1,6 +1,3 @@
-/* ==========================================================================
-   Borrow Modal - Stationery Paper Aesthetic
-   ========================================================================== */
 
 .modal-backdrop {
   position: fixed;
@@ -40,7 +37,7 @@
   }
 }
 
-/* Modal Header */
+
 .modal-header {
   display: flex;
   align-items: center;
@@ -78,7 +75,6 @@
   color: #172044;
 }
 
-/* Equipment Summary */
 .modal-equipment-summary {
   display: flex;
   gap: 14px;
@@ -111,7 +107,6 @@
   margin-top: 2px;
 }
 
-/* Form Fields */
 .modal-form {
   display: flex;
   flex-direction: column;
@@ -188,7 +183,6 @@
   box-shadow: 0 0 0 3px rgba(23, 32, 68, 0.08);
 }
 
-/* Price Breakdown */
 .price-breakdown-card {
   background-color: #F7F3EB;
   border: 1px solid #ECE3D6;
@@ -233,7 +227,6 @@
   color: #172044;
 }
 
-/* Guarantee Note */
 .guarantee-note-box {
   display: flex;
   align-items: center;
@@ -244,7 +237,6 @@
   border: 1px dashed #D5C9B8;
 }
 
-/* Actions Footer */
 .modal-actions-footer {
   display: flex;
   align-items: center;
@@ -289,7 +281,6 @@
   transform: translateY(-1px);
 }
 
-/* Error Alert */
 .modal-error-alert {
   display: flex;
   align-items: center;
@@ -303,7 +294,6 @@
   font-weight: 500;
 }
 
-/* Success View */
 .modal-success-view {
   display: flex;
   flex-direction: column;
