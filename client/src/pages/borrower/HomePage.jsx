@@ -95,7 +95,7 @@ export const HomePage = () => {
             <div className="equipment-grid-container">
               {loading ? (
                 <div className="loading-state-grid">
-                  {[1, 2, 3, 4].map((n) => (
+                  {[1, 2, 3, 4, 5].map((n) => (
                     <div key={n} className="skeleton-card card">
                       <div className="skeleton-thumb"></div>
                       <div className="skeleton-body">
@@ -107,7 +107,7 @@ export const HomePage = () => {
                 </div>
               ) : equipmentList.length > 0 ? (
                 <div className="equipment-cards-grid">
-                  {equipmentList.slice(0, 4).map((item) => (
+                  {equipmentList.slice(0, 5).map((item) => (
                     <EquipmentCard
                       key={item.id}
                       equipment={item}
@@ -159,7 +159,7 @@ export const HomePage = () => {
             <div className="equipment-grid-container">
               {loading ? (
                 <div className="loading-state-grid">
-                  {[1, 2, 3, 4].map((n) => (
+                  {[1, 2, 3, 4, 5].map((n) => (
                     <div key={n} className="skeleton-card card">
                       <div className="skeleton-thumb"></div>
                       <div className="skeleton-body">
@@ -171,7 +171,7 @@ export const HomePage = () => {
                 </div>
               ) : equipmentList.length > 0 ? (
                 <div className="equipment-cards-grid">
-                  {equipmentList.slice(0, 4).map((item) => (
+                  {equipmentList.slice(0, 5).map((item) => (
                     <EquipmentCard
                       key={item.id}
                       equipment={item}
