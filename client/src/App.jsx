@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { MainLayout } from './components/layout/MainLayout';
 import { AuthProvider } from './contexts/AuthContext';
+import { ProtectedRoute } from './components/common/ProtectedRoute';
 
 // Borrower Pages
 import { HomePage } from './pages/borrower/HomePage';
@@ -26,8 +27,14 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
 
-        {/* Main layout routes with Navbar & Footer */}
-        <Route element={<MainLayout />}>
+        {/* Main layout routes with Navbar & Footer - Protected */}
+        <Route
+          element={
+            <ProtectedRoute>
+              <MainLayout />
+            </ProtectedRoute>
+          }
+        >
           {/* Borrower Experience Routes */}
           <Route path="/" element={<HomePage />} />
           <Route path="/explore" element={<ExplorePage />} />
@@ -44,7 +51,7 @@ function App() {
         </Route>
 
         {/* Catch-all redirect */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </AuthProvider>
   );
