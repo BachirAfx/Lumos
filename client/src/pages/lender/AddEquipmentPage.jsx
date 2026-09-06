@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { createEquipment } from '../../services/api';
 import {
@@ -10,8 +10,6 @@ import {
   X,
   MapPin,
   Clock,
-  ShieldCheck,
-  Camera,
   Trash2
 } from 'lucide-react';
 import './AddEquipmentPage.css';
@@ -21,36 +19,25 @@ export const AddEquipmentPage = () => {
 
   const [formData, setFormData] = useState({
     title: '',
-    category: 'electronics',
-    condition: 'Excellent',
-    pricePerDay: '450',
-    pricePerHour: '60',
-    deposit: '1500',
-    minDuration: '1 Day',
-    location: 'Engineering Block C, Ground Floor',
+    category: '',
+    condition: '',
+    pricePerDay: '',
+    pricePerHour: '',
+    deposit: '',
+    minDuration: '',
+    location: '',
     description: '',
-    availableDates: 'Daily (9:00 AM - 8:00 PM)'
+    availableDates: ''
   });
 
-  const [images, setImages] = useState([
-    'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=800&auto=format&fit=crop&q=80',
-    'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&auto=format&fit=crop&q=80'
-  ]);
+  const [images, setImages] = useState([]);
+  const [imageFiles, setImageFiles] = useState([]);
+  const fileInputRef = useRef(null);
 
-  const [accessories, setAccessories] = useState([
-    'Protective Carrying Case',
-    '2x Rechargeable Batteries',
-    'High-speed Charging Dock',
-    '64GB V90 Memory Card'
-  ]);
+  const [accessories, setAccessories] = useState([]);
   const [newAccessory, setNewAccessory] = useState('');
 
-  const [rules, setRules] = useState([
-    'Handle with care on campus premises',
-    'Return clean and with charged battery',
-    'Valid Student ID required at pickup'
-  ]);
+  const [rules, setRules] = useState([]);
   const [newRule, setNewRule] = useState('');
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -84,20 +71,29 @@ export const AddEquipmentPage = () => {
     setRules(rules.filter((_, i) => i !== idx));
   };
 
-  const handleRemoveImage = (idx) => {
-    setImages(images.filter((_, i) => i !== idx));
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files || []);
+    if (files.length === 0) return;
+
+    const remainingSlots = 4 - images.length;
+    const filesToAdd = remainingSlots > 0 ? files.slice(0, remainingSlots) : [];
+    if (filesToAdd.length === 0) return;
+
+    const newPreviewUrls = filesToAdd.map(file => URL.createObjectURL(file));
+
+    setImages(prev => [...prev, ...newPreviewUrls].slice(0, 4));
+    setImageFiles(prev => [...prev, ...filesToAdd].slice(0, 4));
+
+    e.target.value = '';
   };
 
-  const handleAddSampleImage = () => {
-    const sampleUrls = [
-      'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&auto=format&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&auto=format&fit=crop&q=80',
-      'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&auto=format&fit=crop&q=80'
-    ];
-    const nextImg = sampleUrls[images.length % sampleUrls.length];
-    if (images.length < 6) {
-      setImages([...images, nextImg]);
-    }
+  const handleTriggerFileInput = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleRemoveImage = (idx) => {
+    setImages(prev => prev.filter((_, i) => i !== idx));
+    setImageFiles(prev => prev.filter((_, i) => i !== idx));
   };
 
   const handleSubmit = async (e) => {
@@ -106,6 +102,11 @@ export const AddEquipmentPage = () => {
 
     if (!formData.title.trim()) {
       setError('Please provide an equipment name.');
+      return;
+    }
+
+    if (!formData.category) {
+      setError('Please select a category.');
       return;
     }
 
@@ -121,15 +122,15 @@ export const AddEquipmentPage = () => {
         category: formData.category,
         condition: formData.condition,
         pricePerDay: Number(formData.pricePerDay),
-        pricePerHour: Number(formData.pricePerHour),
+        pricePerHour: formData.pricePerHour ? Number(formData.pricePerHour) : 0,
         deposit: Number(formData.deposit),
         location: formData.location,
         description: formData.description,
         availableDates: formData.availableDates,
-        images: images.length > 0 ? images : ['https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&auto=format&fit=crop&q=80'],
+        images: images,
         features: accessories,
         rules: rules,
-        tags: [formData.category, 'Student Gear']
+        tags: formData.category ? [formData.category, 'Student Gear'] : ['Student Gear']
       });
 
       if (response.success) {
@@ -207,10 +208,12 @@ export const AddEquipmentPage = () => {
                   <label className="add-label">Category <span className="req-star">*</span></label>
                   <select
                     name="category"
+                    required
                     value={formData.category}
                     onChange={handleChange}
                     className="add-select"
                   >
+                    <option value="" disabled>Select a category</option>
                     <option value="electronics">Electronics & Cameras</option>
                     <option value="computing">Computing & Laptops</option>
                     <option value="academics">Calculators & Academics</option>
@@ -228,6 +231,7 @@ export const AddEquipmentPage = () => {
                     onChange={handleChange}
                     className="add-select"
                   >
+                    <option value="" disabled>Select condition</option>
                     <option value="Brand New">Brand New / Mint</option>
                     <option value="Excellent">Excellent Condition</option>
                     <option value="Good">Good (Minor Wear)</option>
@@ -259,7 +263,16 @@ export const AddEquipmentPage = () => {
                 <span className="add-section-pill">Step 2 of 4</span>
               </div>
 
-              <div className="add-dropzone-box" onClick={handleAddSampleImage}>
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                accept="image/*"
+                multiple
+                style={{ display: 'none' }}
+              />
+
+              <div className="add-dropzone-box" onClick={handleTriggerFileInput}>
                 <div className="dropzone-inner">
                   <div className="dropzone-icon-circle">
                     <UploadCloud size={24} color="#172044" />
@@ -291,7 +304,7 @@ export const AddEquipmentPage = () => {
                     <button
                       type="button"
                       className="add-more-photo-box"
-                      onClick={handleAddSampleImage}
+                      onClick={handleTriggerFileInput}
                     >
                       <Plus size={20} />
                       <span>Add Photo</span>

@@ -60,12 +60,12 @@ export const getEquipmentById = async (id) => {
   return { success: true, data: equipment };
 };
 
-export const createEquipment = async (equipmentData) => {
+export const createEquipment = async (newItemData) => {
   await delay();
 
   const newEquipment = {
     id: `eq-${Date.now()}`,
-    ...equipmentData,
+    ...newItemData,
     ownerId: userData.id,
     ownerName: userData.name,
     ownerAvatar: userData.avatar,
@@ -278,7 +278,7 @@ export const updateRentalStatus = async (rentalId, status) => {
 // USER / AUTH API
 // ============================================================================
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://192.168.50.2:3000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://10.126.76.249:3000/api';
 
 export const getCurrentUser = async () => {
   const token = localStorage.getItem('authToken');
