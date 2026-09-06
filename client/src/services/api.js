@@ -278,7 +278,7 @@ export const updateRentalStatus = async (rentalId, status) => {
 // USER / AUTH API
 // ============================================================================
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://10.126.76.249:3000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
 export const getCurrentUser = async () => {
   const token = localStorage.getItem('authToken');
